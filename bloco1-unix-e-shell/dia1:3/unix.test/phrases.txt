@@ -1,0 +1,6 @@
+Olá, sou um estudante da Trybe.
+Como vai você?
+Estou com fome
+Tem horas?
+fox
+

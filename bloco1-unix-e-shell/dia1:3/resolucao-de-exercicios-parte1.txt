@@ -1,0 +1,39 @@
+Utilizando o terminal, aplique o comando de criação de diretórios que 
+você aprendeu, crie um diretório chamado unix_tests e navegue até ele.
+R:mkdir unix_tests
+ 
+Crie um arquivo de texto com o nome trybe.txt .
+R: touch trybe.txt
+
+Crie uma cópia do arquivo trybe.txt com nome trybe_backup.txt .
+R: cp trybe.txt trybe_backup.txt
+
+Renomeie o arquivo trybe.txt .
+R: mv trybe.txt teste.txt
+
+Dentro de unix_tests , crie um novo diretório chamado backup .
+R:mkdir backup
+
+Mova o arquivo trybe_backup.txt para o diretório backup .
+R: mv trybe_backup backup
+
+Dentro de unix_tests , crie um novo diretório chamado backup2 .
+R: mkdir backup2
+
+Mova o arquivo trybe_backup.txt da pasta backup para a pasta backup2 .
+R: mv backup/trybe_backup.txt backup2
+
+Apague a pasta backup .
+R: rmdir backup
+
+Renomeie a pasta backup2 para backup .
+R: mv backup2 backup
+
+Veja qual o path completo do diretório atual e liste todos os arquivos dentro dele.
+R: pwd, ls -alh 
+
+Apague o diretório backup .
+R: rm -rf backup
+
+Limpe o terminal.
+R: clear
