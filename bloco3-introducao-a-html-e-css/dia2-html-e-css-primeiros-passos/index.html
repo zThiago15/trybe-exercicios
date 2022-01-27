@@ -6,17 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML</title>
     <style>
+
+        body {
+            margin: 0;
+            font-size: 16px; /*Tamanho da fonte para o site inteiro*/
+            background-color: rgb(21, 151, 226);
+        }
+
         h1 {
-            font-size: 68px;
             color: orange;
+            font-size: 68px;
+            font-family: sans-serif; /*fonte padrão*/
+            font-style: italic;
+        }
+
+        p {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 3em; /*3 vezes maior que o tamanho da fonte do seletor body*/
+            font-weight: 600;
+            text-align: center;
+            color: #fff;
+            width: 600px;
+
+            margin: auto;
+            border-radius: 1em; 
+            padding: 15px;
         }
 
         ul {
             background-color: blue;
+            line-height: 30px;
+        }
+
+        #cor1 {
+            background-color: blue;
+        }
+
+        #cor2 {
+            background-color: red;
+        }
+
+        #cor3 {
+            background-color: #000;
+            color: #fff;
         }
 
         .text {
             background-color: greenyellow;
+        }
+
+        a {
+            text-decoration: none;
+            color: navy;
         }
     </style>
 </head>
@@ -24,9 +65,13 @@
     <h1>Exercício 3.2</h1>
     <p class="text">Qual sua cor favorita?</p>
     <ul class="text">
-        <li>Azul</li>
-        <li>Vermelho</li>
-        <li>Preto</li>
+        <li id="cor1"><strong>Azul</strong></li>
+        <li id="cor2">Vermelho</li>
+        <li id="cor3">Preto</li>
     </ul>
+    <hr>
+
+    <h2>Está interessado(a) em criar suas próprias cores?</h2>
+    <a href="https://color.adobe.com/pt/create/color-wheel" target="_blank">Clique aqui e elabore sua paleta com suas cores preferidas com <em>Adobe Color</em></a>
 </body>
 </html>
