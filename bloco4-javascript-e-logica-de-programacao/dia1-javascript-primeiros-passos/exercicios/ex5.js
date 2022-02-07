@@ -1,11 +1,11 @@
-let ang1 = 43;
-let ang2 = 50;
-let ang3 = 53;
+function somarAngulos(ang1, ang2, ang3){
+    const somaAngulos = ang1 + ang2 + ang3;
 
-const somaAngulos = ang1 + ang2 + ang3;
-
-if(somaAngulos == 180){
-    console.log("true");
-} else {
-    console.log("false");
+    if(somaAngulos == 180){
+        return "true";
+    } else {
+        return "false";
+    }
 }
+
+console.log(somarAngulos(43, 50, 53));
