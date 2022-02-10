@@ -61,10 +61,12 @@
         body = body[0]; // Mudei de um array HTMLCollection para ser só um elemento
 
         let h1 = document.createElement("h1");
-        h1.innerText = "texto";
+        h1.innerText = "Exercício 5.2 - JavaScript DOM ";
         body.appendChild(h1);
-
-
+    
+        let main = document.createElement("main");
+        main.className = "main-content";
+        body.appendChild(main);
 
     </script>
   </body>
