@@ -87,6 +87,17 @@
         let image = document.createElement("img");
         image.setAttribute("src", "https://picsum.photos/200");
         sectionLeft.appendChild(image);
+
+        let ul = document.createElement("ul");
+        sectionRight.appendChild(ul);
+
+        let lista1A10 = ['um', 'dois','três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+        for (let i = 0; i < lista1A10.length; i += 1) {
+            let listItem = document.createElement("li");
+            listItem.innerText = lista1A10[i];
+            ul.appendChild(listItem);
+        }
+
     </script>
   </body>
 </html>
