@@ -85,13 +85,19 @@
             let texts = document.getElementsByTagName("p");
 
             for (let i = 0; i < texts.length; i += 1) {
-                texts[i].style.textTransform = "uppercase";
-                
+                texts[i].style.textTransform = "uppercase"; 
             }
-
-
         }
         paragrafoParaMaiusculo();
+
+        function mostrarParaGrafosNoConsole() {
+            let paragrafos = document.getElementsByTagName("p");
+            for (let i = 0; i < paragrafos.length; i += 1) {
+                console.log(paragrafos[i]);
+                
+            }
+        }
+        mostrarParaGrafosNoConsole();
 
     </script>
   </body>
