@@ -75,6 +75,24 @@
         }
         quadradoBranco();
 
+        function corrigirTexto() {
+            let text = document.getElementsByClassName("title");
+            text[0].innerHTML = "Exercícios 5.1 - JavaScript";
+        }
+        corrigirTexto();
+
+        function paragrafoParaMaiusculo(){
+            let texts = document.getElementsByTagName("p");
+
+            for (let i = 0; i < texts.length; i += 1) {
+                texts[i].style.textTransform = "uppercase";
+                
+            }
+
+
+        }
+        paragrafoParaMaiusculo();
+
     </script>
   </body>
 </html>
