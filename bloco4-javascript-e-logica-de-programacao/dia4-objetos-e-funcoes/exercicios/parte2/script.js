@@ -76,23 +76,34 @@ maiorNome(nomes);
 
 function numeroPrevalente(numeros) {
 
-  let quantidadeCadaNumero = [];
-  for (const number of numeros) { 
+  // Verifiquei o gabarito da Trybe
+  let contarRepeticao = 0;
+  let contarNumero = 0;
+  let indexNumsRepetidos = 0;
+  for (let i = 0; i < numeros.length; i += 1) {
+    let verificaNumeroAtual = numeros[i]; 
+    
+    for(let index2 in numeros){
+      if(verificaNumeroAtual == numeros[index2]){
 
-    let soma = 0;
-    for (let i = 0; i < numeros.length; i += 1) {
-      
-      if(number == numeros[i]){
-        quantidadeRepeticao += 1;
+        contarNumero += 1;
       }
+    }
+
+    if(contarNumero > contarRepeticao){
+      contarRepeticao = contarNumero;
+      indexNumsRepetidos = i;
 
     }
+    contarNumero = 0;
   }
 
-  return quantidadeCadaNumero;
+  return numeros[indexNumsRepetidos];
 
 }
 
+let novosNumeros = [10, 43, 5, 6, 2, 54, 83, 2];
+console.log(numeroPrevalente(novosNumeros)); // 2
 
 // 6 - Crie uma função que receba um número natural (número inteiro não negativo) N e retorne o somatório de todos os números de 1 até N.
 
