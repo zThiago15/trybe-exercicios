@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <header>
+      <h2 id="page-title">Título</h2>
+      <p id="paragraph" class="texto">Dê uma cor para este parágrafo!</p>
+      <h4 id="subtitle">Subtítulo</h4>
+      <p id="second-paragraph" class="texto">Segundo parágrafo!</p>
+    </header>
+    <script>
+      const paragraph = document.querySelector("#paragraph");
+      paragraph.style.color = "red";
+
+      const title = document.querySelector("#page-title");
+      title.innerText = "Corinthians";
+
+      const secParagraph = document.querySelector("#second-paragraph");
+      secParagraph.innerText = "Vai corinthians!";
+
+      let subtitle = document.querySelector("#subtitle");
+      subtitle.innerText = "Comemoração";
+
+      //
+      const text = document.querySelectorAll('.texto');
+
+      for (let i = 0; i < text.length; i += 1) {
+        text[i].innerText = "Novo texto!";
+      }
+      
+      text[0].style.color = "blue";
+
+      const h4 = document.querySelectorAll("h4");
+      h4[0].style.color = "green";
+
+    </script>
+  </body>
+</html>
