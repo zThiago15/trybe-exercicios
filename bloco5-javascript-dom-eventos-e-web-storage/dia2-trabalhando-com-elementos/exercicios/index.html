@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+        let body = document.getElementsByTagName("body");
+        body = body[0]; // Mudei de um array HTMLCollection para ser só um elemento
+
+        let h1 = document.createElement("h1");
+        h1.innerText = "Exercício 5.2 - JavaScript DOM ";
+        body.appendChild(h1);
+    
+        let main = document.createElement("main");
+        main.className = "main-content";
+        body.appendChild(main);
+
+        let section = document.createElement("section");
+        section.className = "center-content";
+        main.appendChild(section);
+
+        let p = document.createElement("p");
+        p.innerText = "NodeList é recupera qualquer coisa na página, HTMLCollection recupera somente elementos HTML";
+        section.appendChild(p);
+
+        let sectionLeft = document.createElement("section");
+        sectionLeft.className = "left-content";
+        main.appendChild(sectionLeft);
+
+        let sectionRight = document.createElement("section");
+        sectionRight.className = "right-content";
+        main.appendChild(sectionRight);
+
+        let image = document.createElement("img");
+        image.setAttribute("src", "https://picsum.photos/200");
+        sectionLeft.appendChild(image);
+
+        let ul = document.createElement("ul");
+        sectionRight.appendChild(ul);
+
+        let lista1A10 = ['um', 'dois','três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+        for (let i = 0; i < lista1A10.length; i += 1) {
+            let listItem = document.createElement("li");
+            listItem.innerText = lista1A10[i];
+            ul.appendChild(listItem);
+        }
+
+        for (let i = 0; i < 3; i += 1) {
+            let h3 = document.createElement("h3");
+            h3.className = "description";
+            main.appendChild(h3);
+        }
+
+        h1.className = "title";
+
+        main.removeChild(sectionLeft);
+
+        sectionRight.style.margin = "auto";
+
+        section.parentNode.style.backgroundColor = "green"
+
+        for (let i = 0; i < 2; i += 1) {
+            ul.removeChild(ul.lastElementChild);
+            
+        }
+        
+    </script>
+  </body>
+</html>
