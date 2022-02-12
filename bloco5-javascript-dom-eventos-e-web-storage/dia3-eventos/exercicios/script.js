@@ -62,9 +62,8 @@ function createButtonFeriado(feriados) {
 
 createButtonFeriado("Feriados");
 
-// ex 3 - adicionar evento ao botão 'Feriados'
-const buttonFeriado = document.querySelector("#btn-holiday");
 
+const buttonFeriado = document.querySelector("#btn-holiday");
 buttonFeriado.addEventListener("click", function () {
   const holidays = document.querySelectorAll(".holiday");
 
@@ -80,3 +79,16 @@ buttonFeriado.addEventListener("click", function () {
     }
   }
 });
+
+
+function buttonSexta(sexta) {
+  const button = document.createElement("button");
+  button.setAttribute("id", "btn-friday")
+  button.innerText = sexta;
+
+  const divButtonsContainer = document.querySelector(".buttons-container");
+  divButtonsContainer.appendChild(button);
+
+}
+
+buttonSexta("Sexta-feira");
