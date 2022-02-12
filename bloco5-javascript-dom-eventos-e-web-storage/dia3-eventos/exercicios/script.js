@@ -139,13 +139,28 @@ for (let i = 0; i < dias.length; i += 1) {
 
 function adicionarTarefa(tarefa) {
   let span = document.createElement("span");
-  span.innerText = tarefa;
-  span.style.display = "block";
+  span.innerHTML = tarefa;
+
 
   let divTasks = document.querySelector(".my-tasks");
   divTasks.appendChild(span);
 
 }
-
 adicionarTarefa("Terminar atividade do dia 5.3");
-adicionarTarefa("Revisar manual da Trybe");
+
+
+function adicionarLegenda(cor) {
+  const spans = document.querySelectorAll(".my-tasks span");
+
+  for (let i = 0; i < spans.length; i += 1) {
+    const div = document.createElement("div");
+    div.className = "task";
+    div.innerHTML = "<br>"
+    div.style.backgroundColor = cor;
+
+    divClassMyTasks = document.querySelector(".my-tasks");
+    divClassMyTasks.append(div);
+  }
+}
+
+adicionarLegenda("blue")
