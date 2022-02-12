@@ -29,8 +29,7 @@ const dezDaysList = [
 ];
 
 function createDaysOfTheMonth() {
-
-  const ul = document.querySelector("#days")
+  const ul = document.querySelector("#days");
   for (let i = 0; i < dezDaysList.length; i += 1) {
     const dayMonth = dezDaysList[i];
 
@@ -38,11 +37,11 @@ function createDaysOfTheMonth() {
     li.className = "day";
     li.innerText = dezDaysList[i];
 
-    if(dayMonth == 24 || dayMonth == 25 || dayMonth == 31) {
+    if (dayMonth == 24 || dayMonth == 25 || dayMonth == 31) {
       li.className += " holiday";
     }
 
-    if(dayMonth == 4 || dayMonth == 11 || dayMonth == 18 || dayMonth == 25) {
+    if (dayMonth == 4 || dayMonth == 11 || dayMonth == 18 || dayMonth == 25) {
       li.className += " friday";
     }
 
@@ -57,8 +56,27 @@ function createButtonFeriado(feriados) {
   button.setAttribute("id", "btn-holiday");
   button.innerText = feriados;
 
-  const div = document.querySelector(".buttons-container")
+  const div = document.querySelector(".buttons-container");
   div.appendChild(button);
-} 
+}
 
 createButtonFeriado("Feriados");
+
+// ex 3 - adicionar evento ao botão 'Feriados'
+const buttonFeriado = document.querySelector("#btn-holiday");
+
+buttonFeriado.addEventListener("click", function () {
+  const holidays = document.querySelectorAll(".holiday");
+
+  for (let i = 0; i < holidays.length; i += 1) {
+    colorHoliday = holidays[i].style.backgroundColor;
+
+    // site de referência: https://www.freecodecamp.org/news/html-button-onclick-javascript-click-event-tutorial/
+    if (colorHoliday == "blue") {
+      // se for azul, volta pro estado inicial
+      holidays[i].style.backgroundColor = "rgb(238,238,238)";
+    } else {
+      holidays[i].style.backgroundColor = "blue";
+    }
+  }
+});
