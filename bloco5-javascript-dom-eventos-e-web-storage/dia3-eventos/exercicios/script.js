@@ -123,19 +123,29 @@ buttonSexta.addEventListener("click", function () {
 
 const dias = document.querySelectorAll(".day");
 
-for (let i = 0; i < dias.length; i += 1) { // percorrer todos os dias e adicionar eventos a cada um
+for (let i = 0; i < dias.length; i += 1) {
+  // percorrer todos os dias e adicionar eventos a cada um
 
   dias[i].addEventListener("mouseover", function (event) {
     event.target.style.fontWeight = "600";
     event.target.style.fontSize = "25px";
-
   });
-  
+
   dias[i].addEventListener("mouseout", function (event) {
     event.target.style.fontWeight = "normal";
     event.target.style.fontSize = "20px";
-
   });
-  
 }
 
+function adicionarTarefa(tarefa) {
+  let span = document.createElement("span");
+  span.innerText = tarefa;
+  span.style.display = "block";
+
+  let divTasks = document.querySelector(".my-tasks");
+  divTasks.appendChild(span);
+
+}
+
+adicionarTarefa("Terminar atividade do dia 5.3");
+adicionarTarefa("Revisar manual da Trybe");
