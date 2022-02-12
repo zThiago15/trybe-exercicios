@@ -99,9 +99,9 @@ const buttonSexta = document.querySelector("#btn-friday");
 const sextas = document.getElementsByClassName("friday");
 
 // Recuperando dias iniciais das sextas
-const dias = [];
+const diasSexta = [];
 for (const dia of sextas) {
-  dias.push(dia.innerHTML);
+  diasSexta.push(dia.innerHTML);
 }
 
 buttonSexta.addEventListener("click", function () {
@@ -113,7 +113,29 @@ buttonSexta.addEventListener("click", function () {
       sextas[i].innerHTML = textoAlterado;
     } else {
       // se estiver alterado, ao clicar irá voltar para o valor inicial
-      sextas[i].innerHTML = dias[i];
+      sextas[i].innerHTML = diasSexta[i];
     }
   }
 });
+
+// Implemente duas funções que criem um efeito de "zoom". Ao passar o ponteiro do mouse em um dia do mês no calendário, o texto desse dia deve aumentar e, quando o ponteiro do mouse sair do dia, o texto deve retornar ao tamanho original.
+// Dica - Propriedade: event.target .
+
+const dias = document.querySelectorAll(".day");
+
+for (let i = 0; i < dias.length; i += 1) { // percorrer todos os dias e adicionar eventos a cada um
+
+  dias[i].addEventListener("mouseover", function (event) {
+    event.target.style.fontWeight = "600";
+    event.target.style.fontSize = "25px";
+
+  });
+  
+  dias[i].addEventListener("mouseout", function (event) {
+    event.target.style.fontWeight = "normal";
+    event.target.style.fontSize = "20px";
+
+  });
+  
+}
+
