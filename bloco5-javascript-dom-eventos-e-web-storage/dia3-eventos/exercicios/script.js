@@ -141,13 +141,10 @@ function adicionarTarefa(tarefa) {
   let span = document.createElement("span");
   span.innerHTML = tarefa;
 
-
   let divTasks = document.querySelector(".my-tasks");
   divTasks.appendChild(span);
-
 }
 adicionarTarefa("Terminar atividade do dia 5.3");
-
 
 function adicionarLegenda(cor) {
   const spans = document.querySelectorAll(".my-tasks span");
@@ -155,7 +152,7 @@ function adicionarLegenda(cor) {
   for (let i = 0; i < spans.length; i += 1) {
     const div = document.createElement("div");
     div.className = "task";
-    div.innerHTML = "<br>"
+    div.innerHTML = "<br>";
     div.style.backgroundColor = cor;
 
     divClassMyTasks = document.querySelector(".my-tasks");
@@ -163,4 +160,25 @@ function adicionarLegenda(cor) {
   }
 }
 
-adicionarLegenda("blue")
+adicionarLegenda("blue");
+
+const divLegenda = document.querySelectorAll(".task");
+
+for (let i = 0; i < divLegenda.length; i += 1) {
+  
+    legendaAtual = divLegenda[i];
+
+    legendaAtual.addEventListener("click", function () {
+
+      if(legendaAtual.className != "task selected") { // se legenda, não estiver selecionada, irá selecionar
+        legendaAtual.className = "task selected";
+
+      } else { // se estiver selecionada, não estará mais
+        legendaAtual.className = "task";
+      }
+
+    });
+}
+
+
+
