@@ -62,7 +62,6 @@ function createButtonFeriado(feriados) {
 
 createButtonFeriado("Feriados");
 
-
 const buttonFeriado = document.querySelector("#btn-holiday");
 buttonFeriado.addEventListener("click", function () {
   const holidays = document.querySelectorAll(".holiday");
@@ -80,15 +79,41 @@ buttonFeriado.addEventListener("click", function () {
   }
 });
 
-
-function buttonSexta(sexta) {
+function createButtonSexta(sexta) {
   const button = document.createElement("button");
-  button.setAttribute("id", "btn-friday")
+  button.setAttribute("id", "btn-friday");
   button.innerText = sexta;
 
   const divButtonsContainer = document.querySelector(".buttons-container");
   divButtonsContainer.appendChild(button);
-
 }
 
-buttonSexta("Sexta-feira");
+createButtonSexta("Sexta-feira");
+
+/**
+Implemente uma função que adicione ao botão "Sexta-feira" um evento de "click" que modifica o texto exibido nos dias que são Sexta-feira.
+É interessante que este botão possua também a lógica inversa. Ao ser clicado novamente ele retorna à configuração inicial exibindo os dias.
+ */
+
+const buttonSexta = document.querySelector("#btn-friday");
+const sextas = document.getElementsByClassName("friday");
+
+// Recuperando dias iniciais das sextas
+const dias = [];
+for (const dia of sextas) {
+  dias.push(dia.innerHTML);
+}
+
+buttonSexta.addEventListener("click", function () {
+  for (let i = 0; i < sextas.length; i += 1) {
+    const textoAlterado = "<strong> Sextou! 😎 </strong>";
+
+    if (sextas[i].innerHTML != textoAlterado) {
+      // caso seja o texto atual, irá alterar
+      sextas[i].innerHTML = textoAlterado;
+    } else {
+      // se estiver alterado, ao clicar irá voltar para o valor inicial
+      sextas[i].innerHTML = dias[i];
+    }
+  }
+});
