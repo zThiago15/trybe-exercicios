@@ -30,7 +30,6 @@ listItems[2].classList.remove("tech");
 let li1 = listItems[0];
 let inputAlter = document.querySelector("#input");
 
-
 inputAlter.addEventListener('keyup', function () {
 
   li1.innerText = inputAlter.value;
@@ -39,6 +38,10 @@ inputAlter.addEventListener('keyup', function () {
 // 4. Crie uma função que, ao clicar duas vezes em 'Meu top 3 do Spotrybefy', ele
 // redirecione para alguma página;
 // 4.1. Que tal redirecionar para seu portfólio?
+
+myWebpage.addEventListener('dblclick', function () {
+  window.location.href = "https://zthiago15.github.io/";
+});
 
 // 5. Crie uma função que, ao passar o mouse sobre 'Meu top 3 do Spotrybefy', altere
 // a cor do mesmo;
