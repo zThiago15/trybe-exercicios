@@ -74,7 +74,7 @@ buttonFeriado.addEventListener("click", function () {
       // se for azul, volta pro estado inicial
       holidays[i].style.backgroundColor = "rgb(238,238,238)";
     } else {
-      holidays[i].style.backgroundColor = "blue";
+      holidays[i].style.backgroundColor = "yellow";
     }
   }
 });
