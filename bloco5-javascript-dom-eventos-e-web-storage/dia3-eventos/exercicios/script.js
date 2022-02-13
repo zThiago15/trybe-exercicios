@@ -165,20 +165,39 @@ adicionarLegenda("blue");
 const divLegenda = document.querySelectorAll(".task");
 
 for (let i = 0; i < divLegenda.length; i += 1) {
-  
-    legendaAtual = divLegenda[i];
+  legendaAtual = divLegenda[i];
 
-    legendaAtual.addEventListener("click", function () {
-
-      if(legendaAtual.className != "task selected") { // se legenda, não estiver selecionada, irá selecionar
-        legendaAtual.className = "task selected";
-
-      } else { // se estiver selecionada, não estará mais
-        legendaAtual.className = "task";
-      }
-
-    });
+  legendaAtual.addEventListener("click", function () {
+    if (legendaAtual.className != "task selected") {
+      // se legenda, não estiver selecionada, irá selecionar
+      legendaAtual.className = "task selected";
+    } else {
+      // se estiver selecionada, não estará mais
+      legendaAtual.className = "task";
+    }
+  });
 }
 
+for (let i = 0; i < dias.length; i += 1) {
+  dias[i].addEventListener("click", function (event) {
+    // 1 - verificar se uma legenda esta selecionada, se sim, pegar sua cor
 
+    let corInicial = "#777"; // valor padrão do dia
+    for (const index in divLegenda) {
+      if (divLegenda[index].className == "task selected") {
+        corLegenda = divLegenda[index].style.backgroundColor;
+      
+      }
+    }
 
+    if(event.target.style.color !== corLegenda) { 
+      // caso esteja diferente da cor da legeda, troque para ela
+      event.target.style.color = corLegenda;
+
+    } else {
+      event.target.style.color = corInicial;
+    }
+    
+    
+  });
+}
