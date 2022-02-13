@@ -186,18 +186,49 @@ for (let i = 0; i < dias.length; i += 1) {
     for (const index in divLegenda) {
       if (divLegenda[index].className == "task selected") {
         corLegenda = divLegenda[index].style.backgroundColor;
-      
       }
     }
 
-    if(event.target.style.color !== corLegenda) { 
+    if (event.target.style.color !== corLegenda) {
       // caso esteja diferente da cor da legeda, troque para ela
       event.target.style.color = corLegenda;
-
     } else {
       event.target.style.color = corInicial;
     }
-    
-    
   });
 }
+
+
+const botaoAdicionar = document.querySelector("#btn-add");
+const ulTaskList = document.querySelector(".task-list")
+const inputCompromisso =  document.querySelector("#task-input");
+
+
+botaoAdicionar.addEventListener("click", function (event) {
+
+  const li = document.createElement("li");
+  li.innerText = inputCompromisso.value;
+  
+  if(li.innerText == "") {
+    alert("Digite o compromisso no campo de texto e tente novamente!");
+  } else {
+
+    ulTaskList.appendChild(li);
+    inputCompromisso.value = "";
+  }
+
+})
+
+inputCompromisso.addEventListener("keydown", function (event) {
+
+  const li = document.createElement("li");
+  li.innerText = inputCompromisso.value;
+
+  if(event.key == "Enter") {
+    ulTaskList.appendChild(li);
+    inputCompromisso.value = "";
+  }
+
+
+}) 
+
