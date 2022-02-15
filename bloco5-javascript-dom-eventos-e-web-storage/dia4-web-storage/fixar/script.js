@@ -34,11 +34,6 @@ console.log(sessionStorage.getItem('trybe'));
 const revObj = JSON.parse(sessionStorage.getItem('trybe'));
 console.log(revObj);
 
-
-
-
-
-
 const button = document.getElementById('add-button');
 const input = document.getElementById('phrases-input');
 const list = document.getElementById('phrases-list');
