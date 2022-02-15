@@ -1,43 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web storage</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Título</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam
-      consequatur possimus dicta perferendis sunt nam, nulla, voluptatem rerum,
-      eum veniam iure corporis officiis laudantium? Provident magnam similique
-      odio sunt sint. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Amet iusto optio nobis modi, provident quaerat nulla vero fuga illo dolor
-      cupiditate, placeat nisi harum officia est voluptates tempore dicta
-      accusamus!
-    </p>
+    <main>
+      <section>
+        <h1>Título</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam
+          consequatur possimus dicta perferendis sunt nam, nulla, voluptatem
+          rerum, eum veniam iure corporis officiis laudantium? Provident magnam
+          similique odio sunt sint. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Amet iusto optio nobis modi, provident quaerat nulla
+          vero fuga illo dolor cupiditate, placeat nisi harum officia est
+          voluptates tempore dicta accusamus!
+        </p>
+      </section>
 
-    <label for="colorBg">Digite sua cor de fundo:</label>
-    <input type="text" id="colorBg" />
-    <button id="addBgColor">Adicionar</button>
+      <section id="change-values">
+        <label for="colorBg">Cor de fundo:</label>
+        <input type="text" id="colorBg" />
+        <button id="addBgColor">Adicionar</button>
 
-    <label for="colorText">Digite sua cor do texto:</label>
-    <input type="text" id="colorText" />
-    <button id="addTextColor">Adicionar</button>
+        <hr />
 
-    <label for="fontSize">Tamanho do texto(px):</label>
-    <input type="text" id="fontSize" />
-    <button id="addFontSize">Adicionar</button>
+        <label for="colorText">Cor do texto:</label>
+        <input type="text" id="colorText" />
+        <button id="addTextColor">Adicionar</button>
 
-    <label for="lineHeight">Tamanho do espaço entre linhas:</label>
-    <input type="text" id="lineHeight" />
-    <button id="addLineHeight">Adicionar</button>
+        <hr />
 
-    <label for="fontFamily">Fonte das letras:</label>
-    <input type="text" name="" id="fontFamily" />
-    <button id="addFontFamily">Adicionar</button>
+        <label for="fontSize">Tamanho do texto(px):</label>
+        <input type="text" id="fontSize" />
+        <button id="addFontSize">Adicionar</button>
+
+        <hr />
+
+        <label for="lineHeight">Tamanho do espaço entre linhas:</label>
+        <input type="text" id="lineHeight" />
+        <button id="addLineHeight">Adicionar</button>
+        <hr />
+
+        <label for="fontFamily">Fonte das letras:</label>
+        <input type="text" name="" id="fontFamily" />
+        <button id="addFontFamily">Adicionar</button>
+      </section>
+    </main>
 
     <script src="script.js"></script>
   </body>
