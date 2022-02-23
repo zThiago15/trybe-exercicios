@@ -14,6 +14,7 @@ const btnEnviar = document.querySelector("#btnEnviar");
 // }
 //btnEnviar.addEventListener("click", checarDados);
 
+// Estilizar data - https://github.com/Pikaday/Pikaday
 let picker = new Pikaday({
   field: document.getElementById("datepicker"),
   format: "D/M/YYYY",
@@ -35,7 +36,7 @@ let picker = new Pikaday({
   },
 });
 
-// Validação
+// Validação - https://github.com/horprogs/Just-validate
 const validation = new JustValidate("#form", {
   errorFieldCssClass: "is-invalid",
 });
