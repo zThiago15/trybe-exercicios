@@ -203,7 +203,6 @@ const botaoAdicionar = document.querySelector("#btn-add");
 const ulTaskList = document.querySelector(".task-list")
 const inputCompromisso =  document.querySelector("#task-input");
 
-
 botaoAdicionar.addEventListener("click", function (event) {
 
   const li = document.createElement("li");
@@ -229,6 +228,4 @@ inputCompromisso.addEventListener("keydown", function (event) {
     inputCompromisso.value = "";
   }
 
-
 }) 
-
