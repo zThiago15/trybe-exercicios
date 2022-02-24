@@ -35,9 +35,6 @@ main {
 }
 
 section {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
 }
 
 figure {
@@ -46,4 +43,28 @@ figure {
 
 figcaption {
   font-size: 0.8em;
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    background-color: rgb(190, 190, 190);
+    font-size: 25px;
+    margin: 5px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  section figure img {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  article {
+    width: 80%;
+  }
 }
