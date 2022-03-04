@@ -1,0 +1,73 @@
+/*
+Referências:
+Esquema de cor do site - https://www.schemecolor.com/carefully-arranged.php
+Animar botões - https://www.w3schools.com/howto/howto_css_animate_buttons.asp
+Transições - https://www.w3schools.com/css/css3_transitions.asp
+Flexbox - https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-background
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    justify-content: space-evenly;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+section {
+    width: 50%;
+    padding: 25px;
+    margin-top: 30px;
+    height: 50%;
+
+    background-color: #CAF9EC;
+    border-radius: 1em;
+}
+
+
+#change-values {
+    height: 50%;
+    width: 300px;
+    background-color: #CAF9EC;
+
+}
+
+input {
+    display: block;
+    margin: 0 0 10px;
+}
+
+button {
+    display: block;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 1em;
+    padding: 8px;
+    font-size: 12px;
+
+    background-color: #1F6BAE;
+    color: #fff;
+
+    cursor:pointer;   
+    transition: 0.6s;
+}
+
+button:hover {
+    background-color: #10538d;
+
+}
+
+hr {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
