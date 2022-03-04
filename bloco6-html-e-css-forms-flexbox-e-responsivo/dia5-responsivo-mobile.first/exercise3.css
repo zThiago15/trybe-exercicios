@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+}
+
+#container {
+  margin: 0 auto;
+  width: 100%;
+  background: #fff;
+}
+
+#header {
+  background: #ccc;
+  padding: 20px;
+}
+
+#header h1 {
+  margin: 0;
+}
+
+#navigation {
+  width: 100%;
+  background: #333;
+}
+
+#navigation ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#navigation ul li {
+  list-style-type: none;
+  display: flex;
+}
+
+#navigation li a {
+  padding: 5px 10px;
+  color: #fff;
+  text-decoration: none;
+  border-right: 1px solid #fff;
+}
+
+#navigation li a:hover {
+  background: #383;
+}
+
+#content-container {
+  width: 100%;
+  background: #fff;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 60%;
+  padding: 20px 0;
+  margin: 0 0 0 4%;
+}
+
+#content h2 {
+  margin: 0;
+}
+
+#aside {
+  width: 33%;
+  padding: 20px 0;
+  margin: 0 3% 0 0;
+}
+
+#aside h3 {
+  margin: 5px;
+}
+
+#footer {
+  background: #ccc;
+  text-align: right;
+  padding: 20px;
+  height: 1%;
+}
+
+@media print {
+  #header,
+  #navigation,
+  #footer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 0;
+  }
+
+  #header {
+    /* Utilizei a propriedade 'sticky' para o header "colar" no topo ao rolar a página
+    https://www.w3schools.com/howto/howto_js_sticky_header.asp */
+    position: sticky;
+    top: 0;
+    width: 100%;
+  }
+
+  img {
+    width: 90%;
+  }
+
+  #navigation {
+  }
+
+  #navigation ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #navigation ul li a {
+    width: 50px;
+    border: 0;
+  }
+
+  #aside {
+    display: none;
+  }
+}
+/* 
+Realize as seguintes tarefas:
+1 - Adicione uma media query no arquivo CSS e as regras necessárias para que a página se pareça com a imagem abaixo quando ela for impressa. Especificamente:
+Os elementos com id header , navigation e footer devem desaparecer;
+O elemento com id aside deve ser mostrado abaixo do conteúdo principal.
+
+
+Visualização da página antes da impressão
+2 - Adicione uma media query no arquivo CSS e as regras necessárias para que a página se pareça com as imagens abaixo quando a tela for redimensionada para larguras menores. Especificamente:
+O elemento com id aside deve desaparecer;
+O elemento body não deve ter padding ;
+As imagens não devem exceder a largura da tela;
+Os itens dentro do elemento navigation devem aparecer cada um em sua própria linha;
+O elemento com id header deve ser fixo, de forma que ele fique aparecendo sempre no topo da tela mesmo após o usuário rolar a página.
+
+240x320: tela pequena
+
+360x640 tela de smartphone */
