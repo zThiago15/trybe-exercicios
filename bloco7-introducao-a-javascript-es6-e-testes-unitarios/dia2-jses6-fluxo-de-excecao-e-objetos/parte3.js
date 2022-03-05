@@ -115,3 +115,21 @@ const checkKeyValue = (obj, key, value) => {
 
 console.log(checkKeyValue(lesson3, 'materia', 'Matemática')); // true
 console.log(checkKeyValue(lesson3, 'turno', 'manha')); // false
+
+// Bônus
+// 1B - Crie uma função para contar quantos estudantes assistiram às aulas de Matemática. Use o objeto criado no exercício 
+
+const countStudents = (obj) => {
+    const data = Object.entries(obj);
+    let totalEstudantes = 0;
+
+    for (let i = 0; i < data.length; i += 1) {
+        totalEstudantes += data[i][1].numeroEstudantes;
+    }
+
+    return totalEstudantes;
+}
+
+console.log(countStudents(allLessons));
+
+// 2B - Crie uma função que deverá retornar um objeto que representa o relatório do professor ou professora, as aulas que ele ou ela ministrou e o número total de estudantes. Use o objeto criado no exercício 5:
