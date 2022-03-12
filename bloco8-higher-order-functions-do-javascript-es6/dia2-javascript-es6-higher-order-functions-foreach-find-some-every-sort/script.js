@@ -34,7 +34,7 @@ const books = [{
         genre: 'Ficção Científica',
         author: {
             name: 'Frank Herbert',
-            birthYear: 1920,
+            birthYear: 1930,
         },
         releaseYear: 1965,
     },
@@ -79,17 +79,81 @@ console.log(authorBornIn1947(books));
 // 2 - Retorne o nome do livro de menor nome.
 // forEach
 
+
 function smallerName(arrBooks) {
     let nameBook;
     // escreva aqui o seu código
-    const lengthNameBooks = [];
 
-    arrBooks.forEach((obj) => {
-        lengthNameBooks.push(obj.name.length);
+    // Ajuda do gabarito
+    arrBooks.forEach((book, index) => {
+        if (index === 0) {
+            nameBook = book.name;
+        } else if (book.name.length < nameBook.length) {
+            nameBook = book.name;
+
+        }
     });
+
 
     // Variável nameBook que receberá o valor do menor nome;
     return nameBook;
 }
 
 console.log(smallerName(books));
+
+// 3 - Encontre o primeiro livro cujo nome possui 26 caracteres.
+// find, iremos passar o array, e fazer uma condicao se o nome tem length de 26
+
+function getNamedBook(arr) {
+    // escreva seu código aqui
+    const bookLength26 = arr.find((item) => item.name.length === 26)
+
+    return bookLength26.name;
+}
+
+console.log(getNamedBook(books));
+
+// 4 - Ordene os livros por data de lançamento em ordem decrescente.
+// usaremos sort, descrescentemente
+
+function booksOrderedByReleaseYearDesc(arr) {
+    // escreva aqui seu código
+    return arr.sort((a, b) => {
+        return b.releaseYear - a.releaseYear;
+    })
+
+
+}
+console.log(booksOrderedByReleaseYearDesc(books));
+
+// 5 - Faça uma função que retorne true , se todas as pessoas autoras nasceram no século XX, ou false , caso contrário.
+// every
+console.log('ex 5');
+
+function everyoneWasBornOnSecXX(arr) {
+    return arr.every((item) => item.author.birthYear > 1899 && item.author.birthYear < 2000);
+}
+
+console.log(everyoneWasBornOnSecXX(books)); // false
+
+// 6 - Faça uma função que retorne true , se algum livro foi lançado na década de 80, e false , caso contrário.
+// some
+function someBookWasReleaseOnThe80s(arrBooks) {
+    // escreva seu código aqui
+    return arrBooks.some((item) => item.releaseYear >= 1980 && item.releaseYear < 1990);
+}
+console.log(someBookWasReleaseOnThe80s(books));
+
+// 7 - Faça uma função que retorne true , caso nenhum author tenha nascido no mesmo ano, e false , caso contrário.
+// utilizar every, checar se todos os autores nascerem em anos diferentes
+function authorUnique(arr) {
+    // escreva seu código aqui
+    let authorBirthYear;
+
+    return arr.every((item) => {
+        arr.every((itemSome) => itemSome.author.birthYear !== item.author.birthYear &&
+            itemSome.author.name !== item.author.name)
+    });
+}
+
+console.log(authorUnique(books));
