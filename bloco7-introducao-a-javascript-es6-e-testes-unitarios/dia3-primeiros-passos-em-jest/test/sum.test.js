@@ -1,4 +1,4 @@
-const sum = require('./sum.js');
+const sum = require('./sum.js.js');
 
 test('if return sum(4, 5) is equal to 9', () => {
     expect(sum(4, 5)).toBe(9);
