@@ -8,24 +8,25 @@ const names = [
 
 function containsA() {
     // escreva seu código aqui
-    // 17 letras maiusculuas
 
     let lettersUppercase = 0;
     let lettersLowercase = 0;
 
-    let idk = names.reduce((accumulator, current) => {
+    const total = names.reduce((accumulator, current) => {
         // verificar, as letras de cada palavra
         for (const letter of current) {
-            if (letter === letter.toUpperCase()) {
+            if (letter === 'A') {
                 lettersUppercase += 1;
-            } else if (letter === letter.toLowerCase()) {
+                accumulator += 1;
+            } else if (letter === 'a') {
                 lettersLowercase += 1;
+                accumulator += 1;
             }
         }
         return accumulator;
-    }, '')
+    }, 0)
 
-    return `Maísculas: ${lettersUppercase}. Minúsculas: ${lettersLowercase}`;
+    return `A: ${lettersUppercase}. a: ${lettersLowercase}. Total ${total}.`;
 }
 
 console.log(containsA());
