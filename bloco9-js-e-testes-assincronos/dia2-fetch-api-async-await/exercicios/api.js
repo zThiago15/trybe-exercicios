@@ -1,10 +1,15 @@
-const API_URL = 'https://api.coincap.io/v2/assets';
+// apiScript.js
+
+const API_CRYPTO = 'https://api.coincap.io/v2/assets';
+const API_CONVERT = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd.min.json';
 
 function showCoins({
-  data
+  data,
+}, {
+  usd
 }) {
 
-  // Mostrar as 10 PRIMEIRAS moedas
+
   const dezPrimeirasMoedas = data.filter((element, index) => index < 10);
   const ul = document.querySelector('ul');
 
@@ -15,7 +20,7 @@ function showCoins({
   }) => {
 
     const li = document.createElement('li');
-    li.innerHTML = `${name} (${symbol}): ${Number(supply).toFixed(2)}`;
+    li.innerHTML = `${name} (${symbol}): R$ ${(supply * usd.brl).toFixed(2)}`;
     ul.appendChild(li);
 
   });
@@ -25,9 +30,15 @@ function showCoins({
 const fetchCoins = async () => {
 
   try {
-    const response = await fetch(API_URL);
+    // crypto
+    const response = await fetch(API_CRYPTO);
     const data = await response.json();
-    showCoins(data)
+
+    // currency
+    const responseConvert = await fetch(API_CONVERT);
+    const dataConvert = await responseConvert.json();
+
+    showCoins(data, dataConvert)
   } catch (error) {
     console.log(`Ocorreu um erro: ${error}`);
   }
