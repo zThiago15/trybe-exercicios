@@ -20,7 +20,7 @@ function showCoins({
   }) => {
 
     const li = document.createElement('li');
-    li.innerHTML = `${name} (${symbol}): R$ ${(supply * usd.brl).toFixed(2)}`;
+    li.innerHTML = `${name} (${symbol}): R$ g${(supply * usd.brl).toFixed(2)}`;
     ul.appendChild(li);
 
   });
