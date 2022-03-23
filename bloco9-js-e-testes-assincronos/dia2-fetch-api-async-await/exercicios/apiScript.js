@@ -1,5 +1,5 @@
 // apiScript.js
-const API_URL = 'https://icanhazdadjoke.com/';
+const API_URL = 'https://icanazdadjoke.com/';
 
 function showJoke(data) {
   console.log(data);
@@ -20,12 +20,13 @@ const fetchJoke = async () => {
   }
 
   try {
-    fetch(API_URL, myObj)
-      .then(response => response.json())
-      .then(data => showJoke(data));
+    const response = await fetch(API_URL, myObj);
+    const objJoke = await response.json();
+
+    return showJoke(objJoke);
 
   } catch (error) {
-    return error;
+    console.log(`Opa! Ocorreu um erro: ${error}`);
   }
 };
 
