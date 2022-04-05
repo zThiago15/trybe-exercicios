@@ -16,7 +16,6 @@ function App() {
     
     <div className="App">
       <header className="App-header">
-
         <div>{commitments.map((item) => Task(item))}</div>
         
         <img src={logo} className="App-logo" alt="logo" />
