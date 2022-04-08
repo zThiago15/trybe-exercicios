@@ -6,30 +6,46 @@ class Form extends Component {
     super();
 
     this.state = {
-      opcao: '',  
+      sucoFavorito: '',  
       inputText: '',
-      textArea: ''
+      textArea: '',
+      vaiComparecer: false,
     }
-    this.handleTextInput = this.handleTextInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleTextInput(event) {
+  handleChange({ target }) {
+    const { name } = target;
+
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
     this.setState({
-      inputText: event.target.value,
+      [name]: value,
     })
   }
 
   render() {
     return (
       <form>
-        <select>
-          <option> opção 1</option>
-          <option> opção 2</option>
-          <option> opção 3</option>
-        </select>
 
-        <input type="text" value={this.state.inputText} onChange={this.handleTextInput}/>
-        <textarea></textarea>
+        <fieldset>
+          <legend>Preenche os seus dados</legend>
+          <select name="sucoFavorito" value={this.state.opcaoFavorita} onChange={this.handleChange}>
+            <option disabled> Suco favorito </option>
+            <option>Maracujá</option>
+            <option>Limão</option>
+            <option>Manga</option>
+          </select>
+
+          <input type="text" name="inputText" value={this.state.inputText} onChange={this.handleChange}/>
+          <textarea name="textArea" onChange={this.handleChange}></textarea>
+
+        </fieldset>
+        
+        <label id="vaiComparecer">Irá comparecer no evento?</label>
+        <input id="vaiComparecer" name="vaiComparecer" type="checkbox" onChange={this.handleChange}/>
+        <input  type="file"/>
+
         <input type="button" value="Enviar"/>
 
       </form>
