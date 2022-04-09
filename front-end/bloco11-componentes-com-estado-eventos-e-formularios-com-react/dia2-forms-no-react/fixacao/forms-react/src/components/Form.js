@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
-import "./App.css";
+import "../App.css";
 import Name from './Name';
 import Textarea from './Textarea';
-
-const sla = () => {
-
-}
 
 class Form extends Component {
   constructor() {
     super();
 
     this.state = {
-      sucoFavorito: '',  
+      sucoFavorito: 'Maracujá',  
       primeiroNome: '',
       txtApresentacao: '',
       vaiComparecer: false,
@@ -30,13 +26,24 @@ class Form extends Component {
 
     this.setState({
       [name]: value,
-    })
+    }, /* () => this.handleError() */)
+    // Ajuda do gabarito
+
+    this.handleError();
   }
 
   handleError() {
-    this.setState({ formularioComErros: true})
+    const { sucoFavorito, primeiroNome, txtApresentacao } = this.state;
+    const errorsCase = [!sucoFavorito.length, !primeiroNome.length, !txtApresentacao];
+    console.log(!sucoFavorito.length);
+
+    const hasError = errorsCase.some((error) => error === true);
+    this.setState({
+      formularioComErros: hasError,
+    })
   }
 
+  
   render() {
     return (
       <form>
@@ -50,11 +57,11 @@ class Form extends Component {
             <option>Manga</option>
           </select>
 
-          <Name value={this.state.primeiroNome} handleChange={this.handleChange}/>
-          <Textarea value={this.state.txtApresentacao} handleChange={this.handleChange} handleError={this.handleError}/>
+          <Name value={this.state.primeiroNome} handleChange={this.handleChange} />
+          <Textarea value={this.state.txtApresentacao} handleChange={this.handleChange} />
         </fieldset>
         
-        <label>Irá comparecer no evento?</label>
+        <label htmlFor="">Irá comparecer no evento?</label>
         <input name="vaiComparecer" type="checkbox" onChange={this.handleChange}/>
         <input  type="file"/>
 

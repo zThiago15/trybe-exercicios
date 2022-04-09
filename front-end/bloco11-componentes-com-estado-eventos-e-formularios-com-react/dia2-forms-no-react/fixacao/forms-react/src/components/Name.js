@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 
 class Name extends Component {
 
@@ -14,7 +14,7 @@ class Name extends Component {
     return (
       <>
         <input name="primeiroNome" type="text" value={value} onChange={handleChange}/>
-        <span className='Error'>{error}</span>
+        {error}
       </>
     )
   }
