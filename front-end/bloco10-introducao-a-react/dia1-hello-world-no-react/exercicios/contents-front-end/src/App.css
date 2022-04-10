@@ -1,0 +1,20 @@
+header {
+   background-color: yellowgreen;
+}
+
+main {
+  display: flex;
+  padding: 10px;
+  background-color: grey;
+}
+
+.Content {
+  margin-left: 30px;
+  padding: 10px;
+  border-radius: 16px;
+  background-color: aquamarine;
+}
+
+footer {
+  background-color: yellowgreen;
+}

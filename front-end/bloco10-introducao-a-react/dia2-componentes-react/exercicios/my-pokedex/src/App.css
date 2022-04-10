@@ -1,0 +1,22 @@
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Pokemon {
+  display: flex;
+  flex-wrap: wrap;
+  width: 22%;
+
+  margin: 10px;
+  border: 1px solid black;
+  padding: 20px;
+
+  border-radius: 16px;
+
+}
+
+.PokemonAttributes {
+  display: flex;
+  flex-direction: column;
+}
