@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import Form from './components/Form.js';
+import DadJoke from './DadJoke';
 
 function App() {
   return (
-    <Form />
+    <DadJoke />
   );
 }
 
