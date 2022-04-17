@@ -1,0 +1,1 @@
+[] - Ao clicar no botão 'Enviar', apagar todo o innerHTML de form
