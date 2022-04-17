@@ -26,3 +26,15 @@ button {
   margin: auto;
   border-radius: 16px;
 }
+
+.btnTypesPokemon {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  margin: 0 auto;
+}
+
+button {
+  margin: 10px auto;
+
+}
