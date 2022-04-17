@@ -9,16 +9,12 @@ import Profile from './Components/Profile';
 function App() {
   return (
     <BrowserRouter>
-      <ComponentePai>
-        <p>SUPIMPA!</p>
-        <p>Testando <small>props.children</small> no componente filho</p>
-      </ComponentePai>
-
       <Route exact path="/" component={Home} />
       <Route path="/contact" component={Contact}/>
       <Route path="/profile">
         <Profile />
       </Route>
+
     </BrowserRouter>
   );
 }
