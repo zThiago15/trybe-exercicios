@@ -35,7 +35,9 @@ class Form extends Component {
 
       case 'endereco':
         // Remover caractere especial -https://blog.dbins.com.br/remover-acentos-e-caracteres-especiais-com-javascript#:~:text=Se%20voc%C3%AA%20tem%20uma%20string,acentos%20por%20caracteres%20sem%20acentua%C3%A7%C3%A3o.&text=A%20fun%C3%A7%C3%A3o%20%22normalize%22%20utiliza%20a,converter%20os%20caracteres%20com%20acentos.
-        return value.replace(/[^a-zA-Zs]/g, " ")
+
+        // Bonus - formating email with regex
+        return value.replace(/^[a-z0-9.]+@gmail+\.[a-z]{3,}$/g)
       
       default:
         return value;
