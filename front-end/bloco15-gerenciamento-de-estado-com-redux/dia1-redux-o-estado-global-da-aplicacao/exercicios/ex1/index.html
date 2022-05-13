@@ -41,15 +41,46 @@
       };
 
       // 1 - Crie uma store para a nossa aplicação.
-      const store = Redux.createStore(reducer);
+      const store = Redux.createStore(myReducer);
 
       // 2 - Crie um reducer, implementando um switch retornando apenas o estado inicial como default. Não se esqueça de colocar o reducer como parâmetro para o createStore, feito na etapa anterior.
-      function myReducer(state = initialState, action) {
+      function myReducer(state = ESTADO_INICIAL, action) {
+
         switch (action) {
+          case 'NEXT_COLOR':
+            return {
+              ...state, 
+              // index é maior que tamanho de array - 1? receba ultima posicao
+              index: state.index + 1 > state.colors.length - 1 ? state.colors.length : index + 1,
+            }
+          case 'PREVIOUS_COLOR':
+            return {
+              ...state, 
+              index: state.index - 1 < 0 ? 0 : state.index - 1,
+            }
+
           default:
-            state;
+            return state; 
         }
       }
+
+    // 3 - Incremente o switch criado no exercício anterior com as actions NEXT_COLOR e PREVIOUS_COLOR. Essas actions devem alterar o valor index guardado no ESTADO_INICIAL. Atente-se aos limites de tamanho do array, as posições devem iniciar em 0 e não podem exceder a numeração do último item do array. [FEITO]
+
+      
+    // 4 - Crie eventListeners que escutam os cliques de cada botão, o Previous color e o Next color, e realizam um dispatch com o respectivo action.type de cada.
+    const prevColor = document.querySelector('#previous');
+    prevColor.addEventListener('click', () => {
+      store.dispatch(() => ({
+        type: 'PREVIOUS_COLOR'
+      }));
+    })
+
+    const nextColor = document.querySelector('#next');
+    nextColor.addEventListener(('click', () => {
+      store.dispatch(() => ({
+        type: 'NEXT_COLOR'
+      }))
+    }))
 
     </script>
   </body>
