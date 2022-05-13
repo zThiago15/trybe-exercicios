@@ -53,7 +53,7 @@
             return {
               ...state, 
               // index é maior que tamanho de array - 1? receba ultima posicao
-              index: state.index + 1 > state.colors.length - 1 ? state.colors.length : index + 1,
+              index: state.index + 1 > state.colors.length - 1 ? state.colors.length : state.index + 1,
             };
           case 'PREVIOUS_COLOR':
             return {
@@ -64,7 +64,7 @@
           case 'RANDOM':
             return {
               ...state,
-              colors: state.colors.push(state.randomColor),
+              colors: [...state.colors, state.randomColor],
               index: state.colors.length - 1, // usuário verá cor adicionada
             };
           
