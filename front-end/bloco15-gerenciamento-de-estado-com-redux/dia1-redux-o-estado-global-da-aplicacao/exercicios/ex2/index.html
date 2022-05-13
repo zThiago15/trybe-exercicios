@@ -38,6 +38,12 @@
 
       const meuPrimeiroReducer = (state = ESTADO_INICIAL_1, action) => {
         switch (action.type) {
+          case 'ALTERAR_NOME_SOBRENOME_1':
+            return {
+              ...state,
+              nome: action.nome,
+              sobrenome: action.sobrenome
+            }
           default:
             return state;
         }
@@ -45,6 +51,12 @@
 
       const meuSegundoReducer = (state = ESTADO_INICIAL_2, action) => {
         switch (action.type) {
+          case 'ALTERAR_NOME_SOBRENOME_2':
+            return {
+              ...state,
+              nome: action.nome,
+              sobrenome: action.sobrenome
+            }
           default:
             return state;
         }
@@ -58,6 +70,49 @@
 
       // 2 - Crie uma store com a combinação dos reducers.
       const store = Redux.createStore(rootReducer);
+
+      // 3 - Crie actions que alterem o nome e o sobrenome dos estados iniciais, e adapte seu respectivo reducer. [FEITO]
+
+
+      // 4 - Crie dispatchs para alterar os nomes após alguns segundos depois que a página carregar. Segue uma dica de como resolver este exercício:
+      window.onload = () => {
+        setTimeout(() => {
+          store.dispatch({
+            type: 'ALTERAR_NOME_SOBRENOME_1',
+            nome: 'Thiago',
+            sobrenome: 'Marques'
+          });
+          // adicionando 2 dispatches que leval a reducers diferentes
+          store.dispatch({
+            type: 'ALTERAR_NOME_SOBRENOME_2',
+            nome: 'Amanda',
+            sobrenome: 'Santos',
+          })
+        }, 3000);
+      };
+
+      // 5 - Adicione um store.subscribe() para atualizar as informações na página de acordo com o que temos armazenado na store. Quando a página carregar o nome renderizado deve ser alterado após alguns segundos - ajuda do gabarito
+      setTimeout(() => {
+        store.subscribe = () => {
+          const { meuPrimeiroReducer, meuSegundoReducer } = store.getState();
+
+          const nome1 = document.querySelector('#nome-1');
+          const sobrenome1 = document.querySelector('#sobrenome-1');
+
+          const nome2 = document.querySelector('#nome-2');
+          const sobrenome2 = document.querySelector('#sobrenome-2');
+
+          // alteracoes de acordo com os dados no store
+          nome1.innerHTML = meuPrimeiroReducer.nome;
+          sobrenome1.innerHTML = meuPrimeiroReducer.sobrenome;
+
+          nome2.innerHTML = meuSegundoReducer.nome;
+          sobrenome2.innerHTML = meuSegundoReducer.sobrenome;
+        }
+      }, 1000)
+
+      
+
 
     </script>
   </body>
