@@ -31,6 +31,8 @@
       <p>Color: <span id="value">white</span></p>
       <button id="previous">Previous color</button>
       <button id="next">Next color</button>
+      <button id="random">Random color</button>
+
     </div>
     <script>
 
@@ -46,18 +48,26 @@
       // 2 - Crie um reducer, implementando um switch retornando apenas o estado inicial como default. Não se esqueça de colocar o reducer como parâmetro para o createStore, feito na etapa anterior.
       function myReducer(state = ESTADO_INICIAL, action) {
 
-        switch (action) {
+        switch (action.type) {
           case 'NEXT_COLOR':
             return {
               ...state, 
               // index é maior que tamanho de array - 1? receba ultima posicao
               index: state.index + 1 > state.colors.length - 1 ? state.colors.length : index + 1,
-            }
+            };
           case 'PREVIOUS_COLOR':
             return {
               ...state, 
               index: state.index - 1 < 0 ? 0 : state.index - 1,
-            }
+            };
+          
+          case 'RANDOM':
+            return {
+              ...state,
+              colors: state.colors.push(state.randomColor),
+              index: state.colors.length - 1, // usuário verá cor adicionada
+            };
+          
 
           default:
             return state; 
@@ -70,17 +80,45 @@
     // 4 - Crie eventListeners que escutam os cliques de cada botão, o Previous color e o Next color, e realizam um dispatch com o respectivo action.type de cada.
     const prevColor = document.querySelector('#previous');
     prevColor.addEventListener('click', () => {
-      store.dispatch(() => ({
-        type: 'PREVIOUS_COLOR'
-      }));
+      store.dispatch({ type: 'PREVIOUS_COLOR' });
     })
 
     const nextColor = document.querySelector('#next');
-    nextColor.addEventListener(('click', () => {
-      store.dispatch(() => ({
-        type: 'NEXT_COLOR'
-      }))
-    }))
+    nextColor.addEventListener('click', () => {
+      store.dispatch({ type: 'NEXT_COLOR' });
+    })
+
+    // 5 - Faça o subscribe da store, alterando o innerHTML da tag com id value para a cor atual e o style do elemento com id container. Você deverá ser capaz de ver as cores mudando ao fundo, e o nome da cor exibida.
+
+    store.subscribe = () => {
+      const initialState = store.getState();
+      const currentColor = initialState.colors[initialState.index];
+
+      const value = document.querySelector('#value');
+      value.innerHTML = currentColor;
+
+      const container = document.querySelector('#container');
+      container.style.backgroundColor = currentColor;
+    }
+
+    //6 - Crie um botão com o texto Random color, um eventListener e uma action no reducer adicionando uma cor aleatória ao array colors guardado em nosso estado inicial. Faça também com que essa cor seja mostrada ao ser criada, alterando o estado index para a posição dela. Para facilitar, segue uma função que gera cores aleatórias:
+    function criarCor() {
+    const oneChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+    let cor = '#';
+    const aleatorio = () => Math.floor(Math.random() * oneChar.length);
+    for (let i = 0; i < 6; i += 1) {
+        cor += oneChar[aleatorio()];
+    }
+    return cor;
+  }
+
+    const btnRandomColor = document.querySelector('#random');
+    btnRandomColor.addEventListener('click', () => (
+      store.dispatch({
+        type: 'RANDOM',
+        randomColor: criarCor(),
+      })
+    ));
 
     </script>
   </body>
