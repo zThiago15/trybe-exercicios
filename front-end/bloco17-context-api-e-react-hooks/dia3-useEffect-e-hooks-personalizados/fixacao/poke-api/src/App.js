@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import BestPokemon from './components/BestPokemon';
+import usePokemonSprite from './hooks/seekPokemonSprite';
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
   const [limit, setLimit] = useState(10);
 
   const [bestPokemon, setBestPokemon] = useState(false);
+  const [pokemonImg, setPokemonURL] = usePokemonSprite();
 
   // 1- executar a função que simula um 'life cycle', e o array tem as dependencias. Com o array vazio, executará apenas uma vez.
 
@@ -29,6 +31,9 @@ function App() {
     setLimit(limit + 10);
   }
 
+  // const [pokemonImg, setPokemonURL] = usePokemonSprite();
+  // console.log(pokemonImg);
+
   return (
     
     <div className="App">
@@ -36,12 +41,17 @@ function App() {
       <button onClick={ () => setBestPokemon(!bestPokemon) }>Mostrar melhor pokemon</button>
       {bestPokemon && <BestPokemon />}
 
+      <div>
+        <h2>Pokemon list</h2>
+        <img src={ pokemonImg } />
+      </div>
+
+
       <ul>
         { listPokemons.map(({ name, url }, index) => (
-          <div key={ name }>
-            <li>{ name }</li>
-            <p>{`Clique aqui para obter mais informações ${url}`}</p>
-          </div>
+
+            <li key={ name } onClick={ () => setPokemonURL(url) }>{ url }</li>
+      
         )) }
       </ul>
       <button onClick={ addLimit }>Get more pokemons!</button>
