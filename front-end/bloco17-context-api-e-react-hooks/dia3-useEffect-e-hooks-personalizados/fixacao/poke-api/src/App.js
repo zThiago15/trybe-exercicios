@@ -3,6 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import BestPokemon from './components/BestPokemon';
 import usePokemonSprite from './hooks/seekPokemonSprite';
+import GenerateRandomNumber from './components/GenerateRandomNumber';
 
 function App() {
 
@@ -11,6 +12,8 @@ function App() {
 
   const [bestPokemon, setBestPokemon] = useState(false);
   const [pokemonImg, setPokemonURL] = usePokemonSprite();
+
+  const [showTimer, setShowTimer] = useState(true);
 
   // 1- executar a função que simula um 'life cycle', e o array tem as dependencias. Com o array vazio, executará apenas uma vez.
 
@@ -55,6 +58,14 @@ function App() {
         )) }
       </ul>
       <button onClick={ addLimit }>Get more pokemons!</button>
+
+
+      <div>
+        <button onClick={() => setShowTimer(!showTimer)}>Mostrar/esconder números aleatórios!</button>
+        { showTimer && <GenerateRandomNumber />}
+      </div>
+
+
     </div>
   );
 }
