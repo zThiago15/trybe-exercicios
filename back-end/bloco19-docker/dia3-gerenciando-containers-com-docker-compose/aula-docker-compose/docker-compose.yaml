@@ -1,19 +1,28 @@
+version: "3"
 services:
   frontend:
-    build: frontend/    # Especificamos o contexto, ou seja, a pasta onde está>
+    build: frontend/
+    restart: always
     ports:
       - 3000:3000
     depends_on:
       - backend
+    volumes:
+      - ./logs:/var/log/frontend
   backend:
-    build: backend/     # Mesmo caso aqui.
+    build: backend/
+    restart: always
     ports:
       - 3001:3001
-    depends_on:
-      - database
     environment:
       - DB_HOST=database
+    depends_on:
+      - database
   database:
-    image: betrybe/docker-compose-example-database:v1 # Especificamos a imagem>
-    restart: on-failure
+    image: betrybe/docker-compose-example-database:v1
+    restart: always
+    volumes:
+      - dados-do-banco:/data/db
 
+volumes:
+  dados-do-banco:
