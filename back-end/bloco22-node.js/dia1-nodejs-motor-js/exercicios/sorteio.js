@@ -18,4 +18,4 @@ const raffle = () => {
   }
 }
 
-raffle();
+module.exports = { raffle };
