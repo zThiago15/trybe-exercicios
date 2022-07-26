@@ -1,0 +1,14 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "meu primeiro pacote Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Thiago Dias",
+  "license": "ISC",
+  "dependencies": {
+    "dog-names": "^2.1.0"
+  }
+}
