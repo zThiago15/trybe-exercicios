@@ -9,25 +9,22 @@ const { sum, sub, mult, div } = require('./calculator');
 
 const num1 = readline.questionInt('Digite o primeiro número: ');
 const num2 = readline.questionInt('Digite o segundo número: ');
-const operacao = readline.question('Digite uma operacao[adição, subtração, multiplicação, divisão]: ');
+const operacao = readline.question('Digite uma operacao[+, -, *, /]: ');
 
-let result;
 switch (operacao) {
-  case 'adição':
-    result = sum(num1, num2);
+  case '+':
+    console.log(`${num1} ${operacao} ${num2} = ${sum(num1, num2)}`);
     break;
-  case 'subtração':
-    result = sub(num1, num2);
+  case '-':
+    console.log(`${num1} ${operacao} ${num2} = ${sub(num1, num2)}`);
     break;
-  case 'multiplicação':
-    result = mult(num1, num2);
+  case '*':
+    console.log(`${num1} ${operacao} ${num2} = ${mult(num1, num2)}`);
     break;
-  case 'divisão':
-    result = div(num1, num2);
+  case '/':
+    console.log(`${num1} ${operacao} ${num2} = ${div(num1, num2)}`);
     break;
   default:
-    result = 'Nenhuma operação digitada';
+    console.log(`Operação inválida! Tente novamente.`);
     break;
 }
-
-console.log(`O valor da conta equivale a ${result}`);
