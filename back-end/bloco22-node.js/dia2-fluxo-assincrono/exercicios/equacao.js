@@ -1,15 +1,16 @@
-function equacao(a, b, c) {
-  const promise = new Promise((resolve, reject) => {
+async function equacao(a, b, c) {
+  try {
     if (typeof a !== 'number' || typeof b !== 'number' || typeof c !== 'number') {
-      reject(new Error('Informe apenas valores numéricos!'));
+      throw new Error('Informe apenas valores numéricos!');
     }
     const result = (a + b) * c;
-    resolve(result);
-  }) 
+    console.log(result);
 
-  return promise;
+  } catch(err) {
+    console.log(err.message);
+  }
 }
 
-equacao(6, 8, 10)
-  .then((result) => console.log(`O resultado da equação é ${result}`))
-  .catch((err) => console.log(err.message));
+const numeroAleatorio = Math.floor(Math.random() * 100 + 1);
+
+equacao(numeroAleatorio, 'b', numeroAleatorio);
