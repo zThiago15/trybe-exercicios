@@ -1,0 +1,17 @@
+{
+  "name": "fixar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "calcularMedia.js",
+  "dependencies": {
+    "chai": "^4.3.6"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  },
+  "scripts": {
+    "test": "mocha calcularMedia.test.js"
+  },
+  "author": "Thiago Dias",
+  "license": "ISC"
+}
