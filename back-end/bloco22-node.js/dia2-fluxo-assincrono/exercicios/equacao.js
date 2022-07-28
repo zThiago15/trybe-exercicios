@@ -13,4 +13,4 @@ async function equacao(a, b, c) {
 
 const numeroAleatorio = Math.floor(Math.random() * 100 + 1);
 
-equacao(numeroAleatorio, 'b', numeroAleatorio);
+await equacao(numeroAleatorio, 'b', numeroAleatorio);
