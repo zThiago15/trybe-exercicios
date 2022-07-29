@@ -33,21 +33,22 @@ describe('leArquivo', () => {
 
   describe('Quando o arquivo não existe', () => {
     before(() => {
-      sinon
-        .stub(fs, 'readFileSync')
+      sinon.stub(fs, 'readFileSync')
         .throws(new Error('Arquivo não encontrado'));
     });
 
     after(() => {
       fs.readFileSync.restore();
-    });
+    })
 
     describe('a resposta', () => {
-      it('é igual a "null"', () => {
-        const resposta = leArquivo('arquivo_que_nao_existe.txt');
-
+      it('é igual a null', () => {
+        const resposta = leArquivo('arquivo-inexistente.txt');
+        
         expect(resposta).to.be.equal(null);
-      });
-    });
-  });
+      })
+    })
+
+  })
+
 });
