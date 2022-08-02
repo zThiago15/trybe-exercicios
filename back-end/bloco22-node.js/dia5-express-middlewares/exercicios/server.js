@@ -1,4 +1,5 @@
 const express = require('express');
+const generateToken = require('./generate-token');
 
 const app = express();
 app.use(express.json());
@@ -55,5 +56,17 @@ app.post('/sales', validateProduct, validateInfos, (req, res, _next) => {
   return res.status(201).json({ "message": "Venda cadastrada com sucesso" });
 });
 
+const validateUser = (req, res, next) => {
+  const { email, password, firstName, phone } = req.body;
+
+  if (!email || !password || !firstName || !phone) {
+    return res.status(401).json({ message: 'missing fields' });
+  }
+  next();
+}
+
+app.post('/signup', validateUser, (req, res, _next) => {
+  return res.status(200).json({ token: generateToken() });
+})
 
 app.listen(3001, () => console.log('Listening at port 3001'));
