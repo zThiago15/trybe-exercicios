@@ -52,7 +52,17 @@ const validateInfos = (req, res, next) => {
   
 }
 
-app.post('/sales', validateProduct, validateInfos, (req, res, _next) => {
+const validateToken = (req, res, next) => {
+  const { authorization } = req.headers;
+
+  if (!authorization || authorization.length !== 16) {
+    return res.status(401).json({ message: "Token inválido!" });
+  }
+
+  next();
+}
+
+app.post('/sales', validateProduct, validateInfos, validateToken, (req, res, _next) => {
   return res.status(201).json({ "message": "Venda cadastrada com sucesso" });
 });
 
