@@ -6,4 +6,10 @@ const getAll = async () => {
   return books;
 }
 
-module.exports = { getAll };
+const getByAuthorId = async (id) => {
+  const [books] = await connection.execute(`SELECT id, title FROM books WHERE author_id = ${id}`);
+
+  return books;
+}
+
+module.exports = { getAll, getByAuthorId };
