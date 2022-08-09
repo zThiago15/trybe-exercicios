@@ -1,0 +1,28 @@
+version: "3"
+services:
+  frontend:
+    build: frontend/
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    volumes:
+      - ./logs:/var/log/frontend
+  backend:
+    build: backend/
+    restart: always
+    ports:
+      - 3001:3001
+    environment:
+      - DB_HOST=database
+    depends_on:
+      - database
+  database:
+    image: betrybe/docker-compose-example-database:v1
+    restart: always
+    volumes:
+      - dados-do-banco:/data/db
+
+volumes:
+  dados-do-banco:
