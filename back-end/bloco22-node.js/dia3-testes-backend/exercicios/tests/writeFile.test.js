@@ -7,14 +7,14 @@ const { writeFile } = require('../writeFile');
 
 describe('ao escrever arquivo de forma', ()=> {
   describe('correta', () => {
-    before(() => {
-      sinon.stub(fs, 'writeFileSync');
-    })
+    // before(() => {
+    //   sinon.stub(fs, 'writeFileSync');
+    // })
   
-    after(() => {
-      fs.writeFileSync.restore();
-    })
-
+    // after(() => {
+    //   fs.writeFileSync.restore();
+    // })
+    sinon.stub(fs, 'writeFileSync');
 
     describe('o retorno', () => {
       it('será ok', () => {

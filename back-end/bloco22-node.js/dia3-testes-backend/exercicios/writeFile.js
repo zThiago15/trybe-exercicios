@@ -10,4 +10,6 @@ function writeFile(arquivo, conteudo) {
 
 }
 
+console.log(writeFile);
+
 module.exports = { writeFile };
