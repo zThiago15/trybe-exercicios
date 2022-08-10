@@ -1,11 +1,9 @@
-const express = require('express');
 const ProductModel = require('../models/productModel');
 
 const getProducts = async (req, res) => {
   const products = await ProductModel.getAll();
 
   return res.status(200).json(products);
-
 
 };
 
@@ -18,9 +16,10 @@ const getProductById = async (req, res) => {
 const createProduct = async (req, res) => {
   const { name, brand } = req.body;
 
-  const newProduct = await ProductModel.add(name, brand);
+  const newProduct = await ProductModel.ad
+  d(name, brand);
 
-  res.status(201).end();
+  res.status(201).json(newProduct);
 };
 
 const deleteProduct = async (req, res) => {

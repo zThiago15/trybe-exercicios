@@ -1,16 +1,16 @@
 const express = require('express');
 
-const app = express();
+const route = express.Router();
 
-app.use(express.json())
+route.use(express.json())
 
 const Product = require('./controllers/productController');
 
-app.get('/products', Product.getProducts);
-app.get('/product/:id', Product.getProductById);
-app.post('/product', Product.createProduct);
-app.delete('/product/:id', Product.deleteProduct);
-app.put('/product/:id', Product.updateProduct);
+route.get('/products', Product.getProducts);
+route.get('/product/:id', Product.getProductById);
+route.post('/product', Product.createProduct);
+route.delete('/product/:id', Product.deleteProduct);
+route.put('/product/:id', Product.updateProduct);
 
 const port = 3000;
-app.listen(port, console.log(`Listening at port ${port}`));
+route.listen(port, console.log(`Listening at port ${port}`));
