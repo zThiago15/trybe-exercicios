@@ -76,3 +76,74 @@ describe('Ao chamar o controller de create', () => {
 
   });
 });
+
+describe('ao chamar o controller getById', () => {
+  describe('quando o id informado não é válido', () => {
+    const req = {};
+    const res = {};
+
+    before(() => {
+      req.params = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(MoviesService, 'getById').resolves(false);
+    });
+
+    after(() => {
+      MoviesService.getById.restore();
+    });
+
+    it('retorna status 404', async () => {
+      await MoviesController.getById(req, res);
+
+      expect(res.status.calledWith(404)).to.be.equal(true);
+    });
+
+    it('retorna a mensagem "id inválido!"', async () => {
+      await MoviesController.getById(req, res);
+
+      expect(res.json.calledWith({ message: 'id inválido!' })).to.be.equal(true);
+    });
+  });
+
+  describe('quando id é passado com sucesso', () => {
+    const req = {};
+    const res = {};
+    
+    const movie = { 
+      title: 'Example Movie',
+      directedBy: 'Jane Dow',
+      releaseYear: 1999,
+    };
+
+    before(() => {
+      req.params = { id: 1 };
+
+      res.status = sinon.stub().returns(res);
+
+      res.json = sinon.stub().returns();
+
+      sinon.stub(MoviesService, 'getById').resolves(movie);
+    });
+
+    after(() => {
+      MoviesService.getById.restore();
+    });
+
+    it('retorna o status 200', async () => {
+      await MoviesController.getById(req, res);
+
+      expect(res.status.calledWith(200)).to.be.equal(true);
+    });
+
+    it('retorna o objeto com as informaçõe do filme', async () => {
+      await MoviesController.getById(req, res);
+
+      expect(res.json.calledWith(movie)).to.be.equal(true);
+    });
+
+  })
+
+});

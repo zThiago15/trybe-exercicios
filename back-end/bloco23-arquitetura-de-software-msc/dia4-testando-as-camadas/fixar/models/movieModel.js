@@ -12,8 +12,8 @@ const create = async ({ title, directedBy, releaseYear }) => {
   };
 };
 
-const getById = async () => {
-  const [result] = await connection.execute('SELECT title, directed_by, release_year FROM model_example.movies');
+const getById = async (id) => {
+  const [result] = await connection.execute('SELECT title, directed_by, release_year FROM model_example.movies WHERE id = ?', [id]);
 
   return result;
 };

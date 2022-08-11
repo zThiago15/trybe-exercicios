@@ -69,13 +69,10 @@ describe('Selecionar um filme pelo ID', () => {
     it('ter as propriedades title, directed_by, release_year com os valores corretos', async () => {
       const response = await MoviesModel.getById(id);
 
-      expect(response).to.have.a.property('title');
+      expect(response).to.have.all.keys('title', 'directed_by', 'release_year');
+
       expect(response.title).to.be.equal('Inception');
-
-      expect(response).to.have.a.property('directed_by');
       expect(response.directed_by).to.be.equal('Christopher Nolan');
-
-      expect(response).to.have.a.property('release_year');
       expect(response.release_year).to.be.equal(2010);
     });
   });
