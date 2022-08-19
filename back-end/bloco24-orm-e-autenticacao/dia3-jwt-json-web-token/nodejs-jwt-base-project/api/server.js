@@ -15,7 +15,7 @@ const apiRoutes = express.Router();
 /* Aqui, importamos nossa função que valida se o usuário está ou não autenticado */
 apiRoutes.get('/api/posts', validateJWT, routes.getPosts);
 apiRoutes.post('/api/users', routes.createUsers);
-apiRoutes.get('/api/users', routes.getUsers);
+apiRoutes.get('/api/users', validateJWT, routes.getUsers);
 apiRoutes.post('/api/login', routes.login);
 
 app.use(apiRoutes);
