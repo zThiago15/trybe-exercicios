@@ -6,14 +6,12 @@ const createToken = (payload) => {
     payload.admin = isAdmin(payload);
 
     const jwtConfig = {
-      expiresIn: "1h",
-      algorithm: "HS256"
+      expiresIn: '1h',
+      algorithm: 'HS256'
     }
 
     const secret = 'senhasecreta';
-
     const token = jwt.sign(payload, secret, jwtConfig);
-    console.log(token);
 
     return token;
   } catch(err) {
