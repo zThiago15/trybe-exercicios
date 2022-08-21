@@ -1,9 +1,7 @@
 const jwt = require('jsonwebtoken');
-const isAdmin = require('./isAdmin');
 
 const createToken = (payload) => {
   try {
-    payload.admin = isAdmin(payload);
 
     const jwtConfig = {
       expiresIn: '1h',

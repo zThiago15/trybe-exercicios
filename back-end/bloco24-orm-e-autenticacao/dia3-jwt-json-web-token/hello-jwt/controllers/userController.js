@@ -2,7 +2,7 @@ const createToken = require("../helpers/createToken");
 const userServices = require('../services/userServices');
 
 const loginUser = (req, res) => {
-  const payload = req.body;
+  const payload = req.user;
   const token = createToken(payload);
   if(!token) {
     return res.status(400).json({ message: 'Erro: Não foi possível criar token' })

@@ -10,5 +10,4 @@ const createUser = (data) => {
   const token = userModels.createUser(data);
   return token;
 };
-
 module.exports = { createUser };
