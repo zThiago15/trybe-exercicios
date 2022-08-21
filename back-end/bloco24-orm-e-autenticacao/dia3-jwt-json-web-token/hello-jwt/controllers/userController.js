@@ -1,4 +1,5 @@
 const createToken = require("../helpers/createToken");
+const userServices = require('../services/userServices');
 
 const loginUser = (req, res) => {
   const payload = req.body;
@@ -16,4 +17,12 @@ const myUser = (req, res) => {
 
 };
 
-module.exports = { loginUser, myUser };
+const createUser = async (req, res, next) => {
+  const data = req.body;
+
+  const token = userServices.createUser(data);
+  return res.status(200).json({ token });
+  
+};
+
+module.exports = { loginUser, myUser, createUser };
