@@ -9,6 +9,7 @@ app.use(express.json());
 app.get('/author', validateAuthor, getByAuthor)
 app.get('/:id', bookExists, getById);
 app.get('/', getAll);
+
 app.post('/books', create);
 app.put('/books/:id', bookExists, update);
 app.delete('/:id', bookExists, remove);
