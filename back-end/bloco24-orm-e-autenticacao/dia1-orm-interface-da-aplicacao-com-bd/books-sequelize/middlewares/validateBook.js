@@ -1,5 +1,5 @@
 const models = require('../src/models');
-
+const BookService = require('../services/bookService');;
 
 const bookExists = async (req, res, next) => {
   const { id } = req.params;
@@ -11,4 +11,15 @@ const bookExists = async (req, res, next) => {
   next();
 };
 
-module.exports = { bookExists };
+
+const validateAuthor = async (req, res, next) => {
+  const { author } = req.query;
+
+  const booksByAuthor = await BookService.getByAuthor(author);
+  if (booksByAuthor.length === 0) {
+    return res.status(404).json({ message: 'Author not found' });
+  }
+
+  next();
+}
+module.exports = { bookExists, validateAuthor };
