@@ -1,5 +1,5 @@
-const { User } = require('../models');
 const jwt = require('jsonwebtoken');
+const { User } = require('../models');
 
 const secret = 'mysecret';
 
@@ -31,7 +31,6 @@ module.exports = async (req, res) => {
       expiresIn: '7d',
       algorithm: 'HS256',
     };
-
     // signiture
     const token = jwt.sign({ data: user }, secret, jwtConfig);
 
