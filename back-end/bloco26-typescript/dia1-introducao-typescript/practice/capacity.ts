@@ -1,9 +1,8 @@
-const convertMass = (value: number, baseUnity: string, conversionUnity: string): string => {
-  const unities = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
+const convertCapacity = (value: number, baseUnity: string, conversionUnit: string): string => {
+  const unities = ['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml'];
 
-  const baseUnityIndex: number = unities.indexOf(baseUnity);
-  const conversionUnityIndex: number = unities.indexOf(conversionUnity);
-
+  const baseUnityIndex = unities.indexOf(baseUnity);
+  const conversionUnityIndex = unities.indexOf(conversionUnit);
 
   const allValuesConversion = [value];
 
@@ -21,8 +20,9 @@ const convertMass = (value: number, baseUnity: string, conversionUnity: string):
       allValuesConversion.push(lastValue / 10);
     }
   }
+  const conversionValue = allValuesConversion[allValuesConversion.length - 1];
 
-  const conversionValue: number = allValuesConversion[allValuesConversion.length - 1];  
-
-  return `${value}${baseUnity} convertidos para ${conversionUnity} é igual a ${conversionValue}`;
+  return `${value}${baseUnity} em ${conversionUnit} é igual a ${conversionValue}`;
 };
+
+console.log(convertCapacity(1, 'l', 'ml'));
