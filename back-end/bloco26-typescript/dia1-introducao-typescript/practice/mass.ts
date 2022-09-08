@@ -1,3 +1,5 @@
+import * as readlineSync from 'readline-sync';
+
 const convertMass = (value: number, baseUnity: string, conversionUnity: string): string => {
   const unities = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
 
@@ -26,3 +28,16 @@ const convertMass = (value: number, baseUnity: string, conversionUnity: string):
 
   return `${value}${baseUnity} convertidos para ${conversionUnity} é igual a ${conversionValue}`;
 };
+
+
+const exec = () => {
+
+  const value: number = Number(readlineSync.question('Valor a ser convertido: '));
+  const baseUnity: string = readlineSync.question('Unidade base: ');
+  const conversionUnity: string = readlineSync.question('Unidade de conversão: ');
+
+  console.log(convertMass(value, baseUnity, conversionUnity));
+  
+};
+
+exec();

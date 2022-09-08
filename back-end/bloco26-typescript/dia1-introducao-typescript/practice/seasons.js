@@ -1,5 +1,8 @@
+"use strict";
 var _a, _b;
-var readlineSync = require('readline-sync');
+exports.__esModule = true;
+var readlineSync = require("readline-sync");
+// let readlineSync = require('readline-sync');
 // Exercício 2: Crie uma enum que represente os meses do ano.
 var Months;
 (function (Months) {

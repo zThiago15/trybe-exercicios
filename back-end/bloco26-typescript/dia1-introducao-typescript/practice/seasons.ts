@@ -1,4 +1,6 @@
-let readlineSync = require('readline-sync');
+import * as readlineSync from 'readline-sync';
+
+// let readlineSync = require('readline-sync');
 // Exercício 2: Crie uma enum que represente os meses do ano.
 
 enum Months {
@@ -70,7 +72,3 @@ seasons.forEach(([season, months]) => {
     
   }
 })
-
-
-
-

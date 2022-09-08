@@ -1,4 +1,6 @@
-const convert = (value: number, baseUnity: string, conversionUnit: string): string => {
+import * as readlineSync from 'readline-sync';
+
+const convertLength = (value: number, baseUnity: string, conversionUnit: string): string => {
 
   const units = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
 
@@ -30,3 +32,15 @@ const convert = (value: number, baseUnity: string, conversionUnit: string): stri
   return `${value}${baseUnity} convertidos para ${conversionUnit} é igual a ${conversionValue}`;
 
 };
+
+const exec = () => {
+
+  const value: number = Number(readlineSync.question('Valor a ser convertido: '));
+  const baseUnity: string = readlineSync.question('Unidade base: ');
+  const conversionUnity: string = readlineSync.question('Unidade de conversão: ');
+
+  console.log(convertLength(value, baseUnity, conversionUnity));
+  
+};
+
+exec();

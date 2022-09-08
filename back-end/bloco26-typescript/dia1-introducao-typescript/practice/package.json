@@ -11,6 +11,7 @@
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
     "@types/node": "^18.7.16",
+    "@types/readline-sync": "^1.4.4",
     "readline-sync": "^1.4.10"
   }
 }
