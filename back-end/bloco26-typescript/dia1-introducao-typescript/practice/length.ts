@@ -1,4 +1,4 @@
-const convert = (value: number, baseUnity: string, conversionUnit: string) => {
+const convert = (value: number, baseUnity: string, conversionUnit: string): string => {
 
   const units = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
 
@@ -17,8 +17,6 @@ const convert = (value: number, baseUnity: string, conversionUnit: string) => {
       allValuesThroughConversion.push(lastValue * 10);
          
     }
-
-    return allValuesThroughConversion[allValuesThroughConversion.length - 1]
   } else {
     for (let i = indexBaseUnity; i >= indexConversionUnity; i -= 1) {
       const lastValue: number = allValuesThroughConversion[allValuesThroughConversion.length - 1];
@@ -26,9 +24,9 @@ const convert = (value: number, baseUnity: string, conversionUnit: string) => {
       allValuesThroughConversion.push(lastValue / 10);
          
     }
-
-    return allValuesThroughConversion[allValuesThroughConversion.length - 1]
-
   }
+  let conversionValue: number = allValuesThroughConversion[allValuesThroughConversion.length - 1];
+
+  return `${value}${baseUnity} convertidos para ${conversionUnit} é igual a ${conversionValue}`;
 
 };
