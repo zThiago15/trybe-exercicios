@@ -33,5 +33,12 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     const bookModel = new Book_1.default(connection_1.default);
     const allBooks = yield bookModel.getAll();
     console.log(allBooks);
+    const title = readline_sync_1.default.question('Digite o nome do livro: ');
+    const price = readline_sync_1.default.questionFloat('Digite o preço do livro: ');
+    const author = readline_sync_1.default.question('Digite o autor do livro: ');
+    const isbn = readline_sync_1.default.question('Digite o isbn do livro: ');
+    const book = { title, price, author, isbn };
+    const insertedBook = yield bookModel.create(book);
+    console.log(insertedBook);
 });
 main();

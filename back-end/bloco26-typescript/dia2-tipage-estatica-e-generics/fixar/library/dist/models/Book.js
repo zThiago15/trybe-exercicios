@@ -19,5 +19,12 @@ class BookModel {
             return result;
         });
     }
+    create(book) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { title, price, author, isbn } = book;
+            const [{ insertId }] = yield this.connection.execute('INSERT INTO books (title, price, author, isbn) VALUES(?, ?, ?, ?)', [title, price, author, isbn]);
+            return Object.assign({ id: insertId }, book);
+        });
+    }
 }
 exports.default = BookModel;
