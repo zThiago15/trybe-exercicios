@@ -1,18 +1,18 @@
-enum color {
+export enum color {
   black='preto',
   white='branco',
   red='vermelho',
   silver='prata'
 }
 
-enum ports {
+export enum ports {
   frontRight = 'frente a direita',
   frontLeft= 'frente a esquerda',
   backRight = 'atras a direita',
   backLeft = 'atras a esquerda'
 }
 
-enum directions {
+export enum directions {
   up='frente',
   right='direita',
   left='esquerda',
