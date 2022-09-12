@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-// require('dotenv').config();
+require('dotenv').config();
 
 const connection = mysql.createPool({
   host: process.env.DB_HOSTNAME,
