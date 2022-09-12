@@ -32,4 +32,22 @@ export default class BookModel {
     const { insertId } = dataInserted;
     return { id: insertId, ...book };
   }
+
+  public async update(id: number, book: Book) {
+    const { title, price, author, isbn } = book;
+
+    await this.connection.execute('UPDATE books SET title=?, price=?, author=?, isbn=? WHERE id=?', [title, price, author, isbn, id]);
+  }
+
+  public async remove(id: number) {
+    await this.connection.execute('DELETE FROM books WHERE id=?', [id]);
+  }
+
+  public async partialUpdate(id: number, book: Partial<Book>): Promise<void> {
+    const fields = Object.keys(book).map((field) => `${field}=?`).join(', ');
+    
+    const values = Object.values(book);
+
+    await this.connection.execute(`UPDATE books SET ${fields} WHERE id = ?`, [...values, id])
+  }
 }

@@ -29,6 +29,32 @@ class BooksController {
             }
             return res.status(http_status_codes_1.StatusCodes.OK).json(book);
         });
+        this.create = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const book = req.body;
+            const bookCreated = yield this.bookService.create(book);
+            return res.status(http_status_codes_1.StatusCodes.CREATED).json(bookCreated);
+        });
+        this.update = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const id = Number(req.params.id);
+            const book = req.body;
+            yield this.bookService.update(id, book);
+            res.status(http_status_codes_1.StatusCodes.NO_CONTENT).end();
+        });
+        this.remove = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const id = Number(req.params.id);
+            const book = yield this.bookService.getById(id);
+            if (!book) {
+                return res.status(http_status_codes_1.StatusCodes.NOT_FOUND).json({ message: 'Book not found!' });
+            }
+            yield this.bookService.remove(id);
+            return res.status(http_status_codes_1.StatusCodes.OK).json({ message: 'Book deleted successfully' });
+        });
+        this.partialUpdate = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const id = Number(req.params.id);
+            const book = req.body;
+            yield this.bookService.partialUpdate(id, book);
+            res.status(http_status_codes_1.StatusCodes.NO_CONTENT).end();
+        });
     }
 }
 exports.default = BooksController;

@@ -24,9 +24,7 @@ class BookModel {
     getById(id) {
         return __awaiter(this, void 0, void 0, function* () {
             const [rows] = yield this.connection.execute('SELECT * FROM books WHERE id = ?', [id]);
-            console.log(rows);
             const [book] = rows;
-            console.log(book);
             return book;
         });
     }
@@ -37,6 +35,24 @@ class BookModel {
             const [dataInserted] = result;
             const { insertId } = dataInserted;
             return Object.assign({ id: insertId }, book);
+        });
+    }
+    update(id, book) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { title, price, author, isbn } = book;
+            yield this.connection.execute('UPDATE books SET title=?, price=?, author=?, isbn=? WHERE id=?', [title, price, author, isbn, id]);
+        });
+    }
+    remove(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.connection.execute('DELETE FROM books WHERE id=?', [id]);
+        });
+    }
+    partialUpdate(id, book) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const fields = Object.keys(book).map((field) => `${field}=?`).join(', ');
+            const values = Object.values(book);
+            yield this.connection.execute(`UPDATE books SET ${fields} WHERE id = ?`, [...values, id]);
         });
     }
 }

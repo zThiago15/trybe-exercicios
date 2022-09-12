@@ -1,6 +1,7 @@
 import connection from '../models/connection';
 import BookModel from '../models/book.model';
 import Book from '../interfaces/book.interface';
+import { NotFoundError } from 'restify-errors';
 
 class BookService {
   public model: BookModel;
@@ -17,6 +18,38 @@ class BookService {
   public async getById(id: number): Promise<Book> {
     const book = await this.model.getById(id);
     return book;
+  }
+
+  public async create(book: Book): Promise<Book> {
+    const bookCreated = await this.model.create(book);
+    return bookCreated;
+  }
+
+  public async update(id: number, book: Book): Promise<void> {
+    const bookFound = await this.model.getById(id);
+    if (!bookFound) {
+      throw new NotFoundError('Book not found');
+    }
+
+    return this.model.update(id, book);
+  }
+
+  public async remove(id: number): Promise<void> {
+    const bookFound = await this.model.getById(id);
+    if (!bookFound) {
+      throw new NotFoundError('Book not found');
+    }
+
+    this.model.remove(id);
+  }
+
+  public async partialUpdate(id: number, book: Partial<Book>): Promise<void> {
+    const bookFound = await this.model.getById(id);
+    if (!bookFound) {
+      throw new NotFoundError('Book not found');
+    }
+
+    return await this.model.partialUpdate(id, book);
   }
 }
 
