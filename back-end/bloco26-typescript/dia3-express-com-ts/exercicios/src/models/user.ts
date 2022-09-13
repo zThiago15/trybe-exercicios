@@ -6,7 +6,7 @@ export default class User {
 
   constructor(connection: Pool) {
     this.connection = connection;
-  } 
+  }
 
   public async getAll(): Promise<IUser[]> {
     const [users] = await this.connection.execute('SELECT * FROM Users');
@@ -26,4 +26,16 @@ export default class User {
     return { id: insertId, ...user }
   }
 
+  public async update(id: number, user: IUser) {
+    const { name, email, password } = user;
+
+    await this.connection.execute('UPDATE Users SET name =?, email = ?, password = ?', [name, email, password]);
+  }
+  
+  public async remove(id: number) {
+    await this.connection.execute(
+      'DELETE FROM Users WHERE id=?',
+      [id],
+    );
+  }
 }

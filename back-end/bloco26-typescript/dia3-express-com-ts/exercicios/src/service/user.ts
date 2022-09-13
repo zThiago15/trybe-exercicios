@@ -19,4 +19,27 @@ export default class UserService {
 
     return user;
   }
+
+  public async create(user: IUser): Promise<IUser> {
+    const userCreated = await this.model.create(user);
+    return userCreated;
+  }
+
+  public async update(id: number, user: IUser): Promise<void> {
+    const userFound = this.model.getById(id);
+    if (!userFound) {
+      throw new Error('User not found');
+    }
+
+    return this.model.update(id, user);
+  }
+  
+  public async remove(id: number): Promise<void> {
+    const userFound = await this.model.getById(id);
+    if (!userFound) {
+      throw new Error('User not found');
+    }
+
+    this.model.remove(id);
+  }
 }
