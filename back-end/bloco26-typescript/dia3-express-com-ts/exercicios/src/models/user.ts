@@ -33,9 +33,6 @@ export default class User {
   }
   
   public async remove(id: number) {
-    await this.connection.execute(
-      'DELETE FROM Users WHERE id=?',
-      [id],
-    );
+    await this.connection.execute('DELETE FROM Users WHERE id=?',[id]);
   }
 }
