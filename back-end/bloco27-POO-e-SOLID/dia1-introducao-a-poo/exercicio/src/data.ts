@@ -66,4 +66,12 @@ class Data {
 
   }
 
+  formatedDate(day: number, month: number, year: number) {
+    console.log(`${day}/${month}/${year}`);
+    console.log(`${year}-${month}-${day}`);
+    console.log(`${day} de ${month} de ${year}`);
+    console.log(`${day}, ${month} de ${year}`);
+    
+  }
+
 }
