@@ -9,40 +9,47 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class User {
+class BlogPost {
     constructor(connection) {
         this.connection = connection;
     }
     getAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            const [users] = yield this.connection.execute('SELECT * FROM Users');
-            return users;
+            const [posts] = yield this.connection.execute('SELECT * FROM Posts');
+            return posts;
         });
     }
     getById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const [rows] = yield this.connection.execute('SELECT * FROM Users WHERE id = ?', [id]);
-            const [user] = rows;
-            return user;
+            const [result] = yield this.connection.execute('SELECT * FROM Posts WHERE id = ?', [id]);
+            const [post] = result;
+            return post;
         });
     }
-    create(user) {
+    create(post) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { name, email, password } = user;
-            const [{ insertId }] = yield this.connection.execute('INSERT INTO Users(nome, email, password) values(?, ?, ?)', [name, email, password]);
-            return Object.assign({ id: insertId }, user);
+            const { name, title, author, publicationDate } = post;
+            const [{ insertId }] = yield this.connection.execute('INSERT INTO Posts (name, title, author, publicationDate) VALUES (?, ?, ?, ?)', [name, title, author, publicationDate]);
+            return Object.assign({ id: insertId }, post);
         });
     }
-    update(id, user) {
+    update(id, post) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { name, email, password } = user;
-            yield this.connection.execute('UPDATE Users SET name =?, email = ?, password = ?', [name, email, password]);
+            const { name, title, author, publicationDate } = post;
+            yield this.connection.execute('UPDATE Posts SET name=?, title=?, author=?, publicationDate=?', [name, title, author, publicationDate]);
         });
     }
     remove(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.connection.execute('DELETE FROM Users WHERE id=?', [id]);
+            yield this.connection.execute('DELETE FROM Posts WHERE id=?', [id]);
+        });
+    }
+    filterPost(query) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const [result] = yield this.connection.execute('SELECT * FROM Posts WHERE LIKE ?', [`%${query}%`]);
+            const [post] = result;
+            return post;
         });
     }
 }
-exports.default = User;
+exports.default = BlogPost;

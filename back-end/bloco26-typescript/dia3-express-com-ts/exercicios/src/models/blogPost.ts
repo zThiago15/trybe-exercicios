@@ -37,4 +37,11 @@ export default class BlogPost {
     await this.connection.execute('DELETE FROM Posts WHERE id=?', [id]);
   }
 
+  public async filterPost(query: string): Promise<IBlogPost> {
+    const [result] = await this.connection.execute('SELECT * FROM Posts WHERE LIKE ?', [`%${query}%`]);
+    const [post] = result as IBlogPost[];
+    
+    return post;
+  }
+
 }
