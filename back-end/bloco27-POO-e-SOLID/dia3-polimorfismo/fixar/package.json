@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsnd src/*.ts"
+    "start": "tsnd src/abstracao/charactersGame.ts"
   },
   "keywords": [],
   "author": "",
