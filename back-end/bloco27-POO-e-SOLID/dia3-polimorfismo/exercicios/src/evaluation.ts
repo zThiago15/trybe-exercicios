@@ -3,15 +3,13 @@ export enum Avaliation {
   trabalho = 'trabalho'
 }
 
-export class Evaluation {
+export abstract class Evaluation {
   private _score: number;
   private _teacher: string;
-  private _type: Avaliation;
 
-  constructor(score: number, teacher: string, type: Avaliation) {
+  constructor(score: number, teacher: string) {
     this._score = score;
     this._teacher = teacher;
-    this._type = type;
   }
 
   public get teacher(): string {
@@ -26,18 +24,39 @@ export class Evaluation {
   }
   
   public set score(value: number) {
-    if ((this._type === 'prova' && value <= 25) || (this.type === 'trabalho' && value <= 50) && value >= 0) {
+    if (value >= 0) {
       this._score = value;
-
     }
   }
 
-  public get type(): Avaliation {
-    return this._type;
+}
+
+class Exam extends Evaluation {
+
+  constructor(score: number, teacher: string) {
+    super(score, teacher);
   }
-  public set type(value: Avaliation) {
-    this._type = value;
+
+  set score(value: number) {
+    if (value <= 25) {
+      this.score = value;
+    }
   }
+}
+
+class Work extends Evaluation {
+
+  constructor(score: number, teacher: string) {
+    super(score, teacher);
+
+  }
+
+  set score(value: number) {
+    if (value <= 50) {
+      this.score = value;
+    }
+  }
+  
 }
 
 class EvaluationResult {
