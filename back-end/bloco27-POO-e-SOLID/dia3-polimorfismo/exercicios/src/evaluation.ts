@@ -30,13 +30,38 @@ export class Evaluation {
       this._score = value;
 
     }
-
   }
 
-  public get type(): string {
+  public get type(): Avaliation {
     return this._type;
   }
-  public set type(value: string) {
+  public set type(value: Avaliation) {
     this._type = value;
+  }
+}
+
+class EvaluationResult {
+  private _evaluation: number;
+  private _score: number;
+
+  constructor(evaluation: number, score: number ) {
+    this._evaluation = evaluation;
+    this._score = score;
+  }
+
+  get evaluation(): number {
+    return this._evaluation;
+  }
+  set evaluation(value: number) {
+    this._evaluation = value;
+  }
+
+  get score() {
+    return this._score;
+  }
+
+  set score(value: number) {
+    if (value >= 0 && value <= this.evaluation)
+    this._score = value;
   }
 }
