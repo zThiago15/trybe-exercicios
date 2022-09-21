@@ -1,27 +1,9 @@
-import redis, { RedisClient } from 'redis';
-import Connector, { ConnectorConstructor } from '../Connector';
+// ./src/Connectors/redis/RedisConnector.ts
 
-export default class RedisConnector implements Connector {
+import Connector from '../Connector';
+import ReadOnlyRedisConnector from './ReadOnlyRedisConnector';
 
-  protected client: RedisClient;
-
-  constructor(config: ConnectorConstructor) {
-    this.client = redis.createClient(config);
-    return this;
-  }
-
-  public async getCount(token: string): Promise<number> {
-    return new Promise((resolve, reject) => {
-      this.client.get(token, (error, reply) => {
-        if (error) reject(error);
-        else resolve(parseInt(reply as string, 10));
-      });
-    });
-  }
-
-  public closeConnection(): void {
-    this.client.quit();
-  }
+export default class RedisConnector extends ReadOnlyRedisConnector implements Connector {
 
   public incrementCount(token: string): void {
     this.client.incr(token);
