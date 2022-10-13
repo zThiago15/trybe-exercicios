@@ -1,0 +1,2 @@
+1 - db.movies.find({ category: { $all: ['action', 'adventure'] } })
+2 - db.movies.find({ category: { $all: ['action', 'sci-fi'] }, imdbRating: { $gt: 7 } })
