@@ -1,0 +1,13 @@
+"use strict";
+const pepperoni = { flavor: "Comum", slices: 8 };
+console.log(pepperoni);
+const marguerita = { flavor: 'marguerita', slices: 6 };
+console.log(marguerita);
+const nutela = { flavor: 'nutela', slices: 4 };
+console.log(nutela);
+const pizzaCalabresa = { flavor: "Calabresa", slices: 4 };
+const pizzaFrango = { flavor: "Frango", slices: 8 };
+const pizzaPepperoni = { flavor: "Pepperoni", slices: 6 };
+const pizzaMarguerita = { flavor: "Marguerita", slices: 6 };
+const pizzaPalmito = { flavor: 'Palmito', slices: 8 };
+const pizzaMarshmallow = { flavor: 'Marshmallow', slices: 4 };

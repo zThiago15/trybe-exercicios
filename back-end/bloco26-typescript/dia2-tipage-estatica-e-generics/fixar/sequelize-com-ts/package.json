@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+  },
+  "dependencies": {
+    "@types/sequelize": "^4.28.14",
+    "dotenv": "^16.0.2",
+    "sequelize": "^6.21.6"
+  },
+  "devDependencies": {
+    "mysql2": "^2.3.3",
+    "sequelize-cli": "^6.4.1"
+  }
+}

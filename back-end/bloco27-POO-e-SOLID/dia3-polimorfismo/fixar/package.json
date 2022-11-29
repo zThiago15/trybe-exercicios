@@ -1,0 +1,19 @@
+{
+  "name": "fixar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsnd src/abstracao/charactersGame.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0"
+  },
+  "dependencies": {
+    "typescript": "^4.8.3"
+  }
+}
