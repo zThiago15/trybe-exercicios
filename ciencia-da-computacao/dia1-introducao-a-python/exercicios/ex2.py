@@ -6,5 +6,3 @@ def average(grades):
   arithmeticAvg = sum / len(grades)
 
   return arithmeticAvg
-
-print([1,1,1,1])
