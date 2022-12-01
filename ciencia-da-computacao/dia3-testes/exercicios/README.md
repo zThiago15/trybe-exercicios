@@ -15,26 +15,6 @@ Exercício 2: Em alguns lugares é comum lembrar um número do telefone associan
 
 Sua tarefa é ler uma expressão e encontrar o número de telefone correspondente baseado na tabela abaixo. Uma expressão é composta por letras maiúsculas (A-Z), hifens (-) e os números 1 e 0.
 
-
-Letras  ->  Número
-ABC     ->  2
-DEF     ->  3
-GHI     ->  4
-JKL     ->  5
-MNO     ->  6
-PQRS    ->  7
-TUV     ->  8
-WXYZ    ->  9
-Exemplo de entrada:
-
-Copiar
-1-HOME-SWEET-HOME
-MY-MISERABLE-JOB
-Saídas correspondentes:
-
-Copiar
-1-4663-79338-4663
-69-647372253-562
 Curiosidade: A frase “The quick brown fox jumps over the lazy dog” é um pantograma (frase com sentido em que são usadas todas as letras do alfabeto de determinada língua) da língua inglesa.
 
 Verifique casos como entrada maior que 30 caracteres, vazia e com caracteres inválidos.
