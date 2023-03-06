@@ -41,7 +41,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 5-2: _JavaScript - Trabalhando com elementos_
 - [x] 5-3: _JavaScript - Eventos_
 - [x] 5-4: _JavaScript - Web Storage_
-- [ ] 5-5: _[Projeto - Meme Generator]()_
+- [x] 5-5: _[Projeto - Meme Generator]()_
 - [x] 5-6: _[Projeto - Arte com Pixels]()_
 - [x] 5-7: _[Projeto - Lista de tarefas]()_
 - [x] 5-7: _[Projeto - Adivinhe a Cor]()_
@@ -181,9 +181,9 @@ Desenvolvimento Front-end
 
 ##### Bloco 25: Aggregation Framework
 
-- [ ] 25-1: _Aggregation Framework - Part 1_
-- [ ] 25-2: _Aggregation Framework - Part 2_
-- [ ] 25-3: _[Projeto - Aggregations]()_
+- [x] 25-1: _Aggregation Framework - Part 1_
+- [x] 25-2: _Aggregation Framework - Part 2_
+- [x] 25-3: _[Projeto - Aggregations]()_
 
 ##### Bloco 26: Intro - NodeJS
 
@@ -236,23 +236,23 @@ Desenvolvimento Front-end
 
 ##### Bloco 34: Projeto
 
-- [ ] 34-1: _[Projeto - Trybeer V2]()_
+- [x] 34-1: _[Projeto - Trybeer V2]()_
 
 ## Ciência da Computação :hourglass_flowing_sand:
 
 ##### Bloco 35: Introdução - Ciência da Computação
 
-- [ ] 35-1: _Arquitetura de Computadores_
-- [ ] 35-2: _Arquitetura de redes_
-- [ ] 35-3: _Redes de computadores, ferramentas e segurança_
-- [ ] 35-4: _[Projeto - Explorando os protocolos]()_
+- [x] 35-1: _Arquitetura de Computadores_
+- [x] 35-2: _Arquitetura de redes_
+- [x] 35-3: _Redes de computadores, ferramentas e segurança_
+- [x] 35-4: _[Projeto - Explorando os protocolos]()_
 
 ##### Bloco 36: Python
 
-- [ ] 35-1: _Aprendendo Python_
-- [ ] 35-2: _Testes e Exceções_
-- [ ] 35-3: _Entrada e Saída de dados_
-- [ ] 36-4: _Entrada e Saída de dados_
-- [ ] 35-5: _[Projeto - Tech news]()_
+- [x] 35-1: _Aprendendo Python_
+- [x] 35-2: _Testes e Exceções_
+- [x] 35-3: _Entrada e Saída de dados_
+- [x] 36-4: _Entrada e Saída de dados_
+- [x] 35-5: _[Projeto - Tech news]()_
 
 # [...]
